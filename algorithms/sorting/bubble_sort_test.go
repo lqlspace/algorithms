@@ -1,8 +1,8 @@
-package bubble
+package sorting 
 
 import (
 	"testing"
-	"algorithm-data-structure/algorithm/rand"
+	"algorithm-data-structure/algorithms/rand"
 )
 
 
