@@ -6,7 +6,7 @@
 package search
 
 import (
-	"fmt"
+//	"fmt"
 )
 
 type SliceInt []int
@@ -20,19 +20,19 @@ func NewSliceInt(nums ...int) SliceInt {
 		si[i] = nums[i]
 	}
 
-	fmt.Println(si)
+	//fmt.Println(si)
 	return si
 }
 
 
 func NewSliceIntBitmap(nums ...int) SliceInt {
-	var arrInt [4]int
+	var arrInt [400]int
 
 	for _, v := range nums {
 		x := v % 32 
 		y := v / 32
 		arrInt[y] |= (1 << uint(x))
-		fmt.Println(arrInt)
+//		fmt.Println(arrInt)
 	}
 
 	return SliceInt(arrInt[:])
@@ -94,7 +94,7 @@ func (si SliceInt) LineSearch(elem int) (index uint32, exist bool) {
 func (si SliceInt) BitmapSearch(elem int) (exist bool) {
 	x := elem % 32
 	y := elem / 32
-	if si[y] & (1 << uint(x)) != 0 {
+	if si[y] & (1 << uint(x)) > 0 {
 		return true
 	} else {
 		return false

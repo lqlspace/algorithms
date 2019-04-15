@@ -6,40 +6,78 @@ import (
 
 
 func TestBinarySearch(t *testing.T) {
-	si := NewSliceInt(1, 2, 3, 6, 7)
-	idx, e := si.BinarySearch(7)
+	testData := GetRandNums("sorted.txt")
+	
+	si := NewSliceInt(testData...)
+	idx, e := si.BinarySearch(6700)
 	if e {
 		t.Logf("exist, location:%v",idx)
 	} else {
-		t.Logf("not exist!")
+		t.Errorf("Error: expected: %t, actual: %t", true, e)
 	}
 }
 
 
 func TestLineSearch(t *testing.T) {
-	si := NewSliceInt(1, 2, 3, 6, 7)
-	idx, e := si.LineSearch(7)
+	testData := GetRandNums("sorted.txt")
+
+	si := NewSliceInt(testData...)
+	idx, e := si.LineSearch(6700)
 	if e {
 		t.Logf("exist, location: %v", idx)
 	} else {
-		t.Logf("not exist!")
+		t.Errorf("Error: expected: %t, actual: %t", true, e)
 	}
 }
 
 
 func TestBitmapSearch(t *testing.T) {
-	si := NewSliceIntBitmap(1, 2, 3, 6, 7)
-	t.Log(si)
-	e := si.BitmapSearch(7)
+	testData := GetRandNums("sorted.txt")
+
+	si := NewSliceIntBitmap(testData...)
+
+	e := si.BitmapSearch(6700)
 	if e {
-		t.Logf("exist!")
+		t.Logf("exist!!!")
 	} else {
-		t.Logf("not exist!")
+		t.Errorf("expected: %t, actual: %t", true, e)
 	}
-	e = si.BitmapSearch(3)
-	if e {
-		t.Logf("exist!")
-	} else {
-		t.Logf("not exist!")
+}
+
+
+func BenchmarkLineSearch(b *testing.B) {
+	b.StopTimer()
+	testData := GetRandNums("sorted.txt")
+	si := NewSliceInt(testData...)
+	b.StartTimer()
+
+	for i := 0; i < b.N; i++ {
+		si.LineSearch(6700)
+	}
+}
+
+
+func BenchmarkBinarySearch(b *testing.B) {
+	b.StopTimer()
+	testData := GetRandNums("sorted.txt")
+	si := NewSliceInt(testData...)
+	b.StartTimer()
+
+
+	for i := 0; i < b.N; i++ {
+		si.BinarySearch(6700)
+	}
+}
+
+
+
+func BenchmarkBitmapSearch(b *testing.B) {
+	b.StopTimer()
+	testData := GetRandNums("sorted.txt")
+	si := NewSliceIntBitmap(testData...)
+	b.StartTimer()
+
+	for i := 0; i < b.N; i++ {
+		si.BitmapSearch(6700)
 	}
 }

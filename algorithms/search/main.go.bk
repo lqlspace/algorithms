@@ -1,0 +1,10 @@
+package main
+
+import (
+	"github.com/lqlspace/algorithms/algorithms/search"
+)
+
+
+func main() {
+	search.SortRandNums("test.txt", "sorted.txt")
+}
