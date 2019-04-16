@@ -1,15 +1,17 @@
 package search
 
 import (
-	"testing"
+//	"testing"
 )
 
 
-func TestCreateRandNumsJSON(t *testing.T) {
-	CreateRandNumsJSON("AAAA", 1000)
-}
-
-
-func TestCreateRandNumsJSONStream(t *testing.T) {
-	CreateRandNumsJSONStream("cccc", 10000)
-}
+//func TestCreateRandNumsJSON(t *testing.T) {
+//	CreateRandNumsJSON("test.txt", 100000)
+//	SortRandNumsJSON("test.txt", "sorted.txt")
+//}
+//
+//
+//func TestCreateRandNumsJSONStream(t *testing.T) {
+//	CreateRandNumsJSONStream("test.txt", 10000)
+//
+//}

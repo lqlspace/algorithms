@@ -70,7 +70,7 @@ func CreateRandNumsJSON(filename string, num uint) {
 	var i uint
 	var ints []int
 	for i = 0; i < num; i++ {
-		ints = append(ints, rand.Intn(10000))
+		ints = append(ints, rand.Intn(int(num)))
 	}
 
 	//2、以JSON格式存入filename
