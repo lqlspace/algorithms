@@ -118,3 +118,80 @@ func BenchmarkBitmapSearch(b *testing.B) {
 		si.BitmapSearch(99267)
 	}
 }
+
+
+/*****************************AVL Tree*********************************/
+
+func TestDisplayAVLTree(t *testing.T) {
+	datas := GetRandNumsJSON("sorted.txt")
+	avl := NewAVLTreeNode(datas[0])
+	for i := 1; i < len(datas); i++ {
+		avl = avl_insert(avl, datas[i]) 
+	}
+
+//	datasAsc := displayAsc(avl)
+//	t.Log(datasAsc)
+//	t.Log("***********************************")
+//	t.Log("***********************************")
+//	datasDesc := displayDesc(avl)
+//	t.Log(datasDesc)
+}
+
+
+func TestAVLTreeSearchRecur(t *testing.T) {
+	datas := GetRandNumsJSON("sorted.txt")
+	avl := NewAVLTreeNode(datas[0])
+	for i := 1; i < len(datas); i++ {
+		avl = avl_insert(avl, datas[i])
+	}
+
+	e := AVLTreeSearchRecur(avl, 99267)
+	if e {
+		t.Log("exist!!!")
+	} else {
+		t.Errorf("Error: expected: %t, actual: %t", true, false)
+	}
+}
+
+func TestAVLTreeSearchIter(t *testing.T) {
+	datas := GetRandNumsJSON("sorted.txt")
+	avl := NewAVLTreeNode(datas[0])
+	for i := 1; i < len(datas); i++ {
+		avl = avl_insert(avl, datas[i])
+	}
+
+	e := AVLTreeSearchIter(avl, 99267)
+	if e {
+		t.Log("exist!!!")
+	} else {
+		t.Errorf("Error: expected: %t, actual: %t", true, false)
+	}
+}
+
+func BenchmarkTreeSearchRecur(b *testing.B) {
+	b.StopTimer()
+	datas := GetRandNumsJSON("sorted.txt")
+	avl := NewAVLTreeNode(datas[0])
+	for i := 1; i < len(datas); i++ {
+		avl = avl_insert(avl, datas[i])
+	}
+	b.StartTimer()
+
+	for i := 0; i < b.N; i++ {
+		AVLTreeSearchRecur(avl, 99267)
+	}
+}
+
+func BenchmarkTreeSearchIter(b *testing.B) {
+	b.StopTimer()
+	datas := GetRandNumsJSON("sorted.txt")
+	avl := NewAVLTreeNode(datas[0])
+	for i := 1; i < len(datas); i++ {
+		avl = avl_insert(avl, datas[i])
+	}
+	b.StartTimer()
+
+	for i := 0; i < b.N; i++ {
+		AVLTreeSearchIter(avl, 99267)
+	}
+}

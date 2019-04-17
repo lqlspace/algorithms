@@ -175,3 +175,153 @@ func (si Bitmap) BitmapSearch(elem int) (exist bool) {
 		return false
 	}
 }
+
+/***************************************AVL树************************************/
+type AVLTreeNode struct {
+	key		int
+	high	int
+	left	*AVLTreeNode
+	right	*AVLTreeNode
+}
+
+func NewAVLTreeNode(value int) *AVLTreeNode {
+	return &AVLTreeNode{key: value}
+}
+
+func highTree(p *AVLTreeNode) int {
+	if p == nil {
+		return -1
+	} else {
+		return p.high
+	}
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+
+	return b
+}
+
+func left_left_rotation(k *AVLTreeNode) *AVLTreeNode {
+	var kl *AVLTreeNode
+
+	kl = k.left
+	k.left = kl.right
+	kl.right = k
+	k.high = max(highTree(k.left), highTree(k.right)) + 1
+	kl.high = max(highTree(kl.left), k.high) + 1
+
+	return kl
+}
+
+func right_right_rotation(k *AVLTreeNode) *AVLTreeNode {
+	var kr *AVLTreeNode
+
+	kr = k.right
+	k.right = kr.left
+	kr.left = k
+	k.high = max(highTree(k.left), highTree(k.right)) + 1
+	kr.high = max(k.high, highTree(kr.right)) + 1
+	return kr
+}
+
+
+func left_right_rotation(k *AVLTreeNode) *AVLTreeNode {
+	k.left = right_right_rotation(k.left)
+	
+	return left_left_rotation(k)
+}
+
+func right_left_rotation(k *AVLTreeNode) *AVLTreeNode {
+	k.right = left_left_rotation(k.right)
+
+	return right_right_rotation(k)
+}
+
+func avl_insert(avl *AVLTreeNode, key int) *AVLTreeNode {
+	if avl == nil {
+		avl = NewAVLTreeNode(key)
+	} else if key < avl.key {
+		avl.left = avl_insert(avl.left, key)
+		if highTree(avl.left) - highTree(avl.right) >=2 {
+			if key < avl.left.key {
+				avl = left_left_rotation(avl)
+			} else {
+				avl = left_right_rotation(avl)
+			}
+		}
+	} else if key > avl.key {
+		avl.right = avl_insert(avl.right, key)
+		if highTree(avl.right) - highTree(avl.left) >= 2 {
+			if key < avl.right.key {
+				avl = right_left_rotation(avl)
+			} else {
+				avl = right_right_rotation(avl)
+			}
+		}
+	} else if key == avl.key {
+		//fmt.Printf("%d has existed!", key)
+	}
+
+	avl.high = max(highTree(avl.left), highTree(avl.right)) + 1
+
+	return avl
+}
+
+
+func displayAsc(avl *AVLTreeNode) []int {
+	return appendValues([]int{}, avl)
+}
+
+func appendValues(values []int, avl *AVLTreeNode) []int {
+	if avl != nil {
+		values = appendValues(values, avl.left)
+		values = append(values, avl.key)
+		values = appendValues(values, avl.right)
+	}
+
+	return values
+}
+
+func displayDesc(avl *AVLTreeNode) []int {
+	return appendValuesDesc([]int{}, avl)
+}
+
+func appendValuesDesc(values []int, avl *AVLTreeNode) []int {
+	if avl != nil {
+		values = appendValuesDesc(values, avl.right)
+		values = append(values, avl.key)
+		values = appendValuesDesc(values, avl.left)
+	}
+	return values
+}
+
+func AVLTreeSearchRecur(avl *AVLTreeNode, key int) bool {
+	if avl == nil {
+		return false
+	} else if key < avl.key {
+		return AVLTreeSearchRecur(avl.left, key)
+	} else if key > avl.key {
+		return AVLTreeSearchRecur(avl.right, key)
+	}
+
+	return true
+}
+
+func AVLTreeSearchIter(avl *AVLTreeNode, key int) bool {
+	var tmp  = avl
+
+	for tmp != nil {
+		if key < tmp.key {
+			tmp = tmp.left
+		} else if key > tmp.key {
+			tmp = tmp.right
+		} else if key == tmp.key {
+			return true
+		}
+	}
+
+	return false
+}
