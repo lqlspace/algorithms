@@ -195,3 +195,51 @@ func BenchmarkTreeSearchIter(b *testing.B) {
 		AVLTreeSearchIter(avl, 99267)
 	}
 }
+
+
+/************************采用标准库Map*******************************/
+func TestHashMap(t *testing.T) {
+	datas := GetRandNumsJSON("sorted.txt")
+	intmap := NewMap(datas...)
+	e := intmap.MapSearch(99267)
+	if e {
+		t.Logf("exist!!!")
+	} else {
+		t.Errorf("Error: expect: %t, actual: %t", true, false)
+	}
+}
+
+func BenchmarkMap(b *testing.B) {
+	b.StopTimer()
+	datas := GetRandNumsJSON("sorted.txt")
+	intmap := NewMap(datas...)
+	b.StartTimer()
+
+	for i := 0; i < b.N; i++ {
+		intmap.MapSearch(99267)
+	}
+}
+
+/***************************自建hash表*******************************/
+
+func TestHashTableSearch(t *testing.T) {
+	datas := GetRandNumsJSON("sorted.txt")
+	ht := NewHashTable(datas...)
+	if e := ht.HashTableSearch(99267); e {
+		t.Logf("exist!!!")
+	} else {
+		t.Errorf("Error: expected: %t, actual: %t", true, false)
+	}
+}
+
+
+func BenchmarkHashTableSearch(b *testing.B) {
+	b.StopTimer()
+	datas := GetRandNumsJSON("sorted.txt")
+	ht := NewHashTable(datas...)
+	b.StartTimer()
+
+	for i := 0; i < b.N; i++ {
+		ht.HashTableSearch(99267)
+	}
+}

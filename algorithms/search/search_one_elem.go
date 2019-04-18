@@ -325,3 +325,49 @@ func AVLTreeSearchIter(avl *AVLTreeNode, key int) bool {
 
 	return false
 }
+
+
+/****************************使用hash表*****************************/
+
+type HashMap map[int]int
+
+func NewMap(nums ...int) HashMap {
+	var intMap = make(HashMap)
+	for _, v := range nums {
+		intMap[v]++
+	}
+
+	return intMap
+}
+
+func (intmap HashMap) MapSearch(key int) bool {
+	if intmap[key] > 0 {
+		return true
+	}
+
+	return false
+}
+
+
+/*************************自建hash表******************************/
+
+type HashTable []int
+
+func NewHashTable(nums ...int) HashTable {
+	var hash [110000]int
+
+	for _, v := range nums {
+		hash[v]++
+	}
+	
+	return HashTable(hash[:])
+}
+
+
+func (ht HashTable) HashTableSearch(key int) bool {
+	if ht[key] > 0 {
+		return true
+	}
+
+	return false
+}
