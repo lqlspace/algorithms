@@ -209,7 +209,7 @@ func TestHashMap(t *testing.T) {
 	}
 }
 
-func BenchmarkMap(b *testing.B) {
+func BenchmarkMapSearch(b *testing.B) {
 	b.StopTimer()
 	datas := GetRandNumsJSON("sorted.txt")
 	intmap := NewMap(datas...)
