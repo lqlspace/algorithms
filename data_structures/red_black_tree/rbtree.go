@@ -261,5 +261,65 @@ func (rbtree *RBTree) deleteCheck(n *RBNode) {
 		}
 	}
 
+	//注意：这里n的兄弟节点发生了变化，不再是原来的兄弟节点
+	is_parent_red := n.parent.color
+	is_sib_red := n.getSibling().color
+	is_sib_left_red := BLACK
+	is_sib_right_red := BLACK
+	if n.getSibling().left != nil {
+		is_sib_left_red = n.getSibling().left.color
+	}
+	if n.getSibling().right != nil {
+		is_sib_right_red = n.getSibling().right.color
+	}
 
+	if !is_parent_red && !is_sib_red && !is_sib_left_red && !is_sib_right_red {
+		n.getSibling().color = RED
+		rbtree.deleteCheck(n.parent)
+		return
+	}
+
+	if is_parent_red && !is_sib_red && !is_sib_left_red && !is_sib_right_rid {
+		n.getSibling().color = RED
+		n.parent.color = BLACK
+		return
+	}
+
+	if n.getSibling().color == BLACK {
+		if n.parent.left == n && is_sib_left_red && !is_sib_right_red {
+			n.getSibling().color = RED
+			n.getSibling().left.color = BLACK
+			retree.rotateRight(n.getSibling())
+		} else if n.parent.right == n && !is_sib_left_red && is_sib_right_red {
+			n.getSibling().color = RED
+			n.getSibling().right.color = BLACK
+			rbtree.rotateLeft(n.getSibling())
+		}
+	}
+	
+	n.getSibling().color = n.parent.color
+	n.parent.color = BLACK
+	if n.parent.left == n {
+		n.getSibling().right.color = BLACK
+		rbtree.rotateLeft(n.parent)
+	} else {
+		n.getSibling().left.color = BLACK
+		rbtree.rotateRight(n.parent)
+	}
+}
+
+
+//log输出树
+func printTreeInLog(n *RBNode, front string) {
+	if n != nil {
+		var colorstr string
+		if n.color == RED {
+			colorstr = "红"
+		} else {
+			colorstr = "黑"
+		}
+		log.Printf(front + "%d,%s\n", n.value, colorstr)
+		printTreeInLog(n.left, front + "-(l)|")
+		printTreeInLog(n.right, front + "-(r)|")
+	}
 }
