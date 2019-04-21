@@ -129,12 +129,20 @@ func TestRotate(t *testing.T) {
 		t.Errorf(err.Error())
 	}
 
-	log.Printf("the value of n1 is %d", n1.value)
+	if n1.left.value == 3 {
+		t.Logf("rotate left successed!!!")
+	} else {
+		t.Errorf("Error: expected : %d, actual: %d", 3, n1.left.value)
+	}
 
 	n2, err := root.left.rotate(RIGHTROTATE)
 	if err != nil {
 		t.Errorf(err.Error())
 	}
 
-	log.Printf("the vlalue of n2 is %d", n2.value)
+	if n2.left.value == 2 {
+		t.Logf("rotate left successed!!!")
+	} else {
+		t.Errorf("Error: expected : %d, actual: %d", 2, n2.left.value)
+	}
 }

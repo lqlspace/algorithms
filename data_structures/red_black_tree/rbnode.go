@@ -105,6 +105,11 @@ func (rbnode *RBNode) rotate(isRotateLeft bool) (*RBNode, error) {
 			parent.right = rbnode.parent
 		}
 		rbnode.parent.parent = parent
+		tmpnode := rbnode
+		for tmpnode.parent != nil {
+			tmpnode = tmpnode.parent
+		}
+		root = tmpnode
 	}
 
 	return root, nil
