@@ -10,6 +10,10 @@ func NewRBTree() *RBTree {
 	return &RBTree{root: nil}
 }
 
+func(rbtree *RBTree) GetRoot() *RBNode {
+	return rbtree.root
+}
+
 func (rbtree *RBTree) Insert(data int64) {
 	if rbtree.root == nil {
 		rootnode := NewRBNode(data)
