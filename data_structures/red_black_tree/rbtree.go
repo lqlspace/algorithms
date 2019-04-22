@@ -52,20 +52,16 @@ func (rbtree *RBTree) rotateLeft(node *RBNode) {
 	if err != nil {
 		log.Fatalf("rotate left error: %v", err)
 	}
-	if tmproot != nil {
-		rbtree.root = tmproot
-	}
+	rbtree.root = tmproot
 }
 
 
 func (rbtree *RBTree) rotateRight(node *RBNode) {
-	tmproot, err := node.rotate(LEFTROTATE)
+	tmproot, err := node.rotate(RIGHTROTATE)
 	if err != nil {
 		log.Fatalf("rotate right error: %v", err)
 	}
-	if tmproot != nil {
-		rbtree.root = tmproot
-	}
+	rbtree.root = tmproot
 }
 
 func (rbtree *RBTree) insertCheck(node *RBNode) {

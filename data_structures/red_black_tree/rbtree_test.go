@@ -8,7 +8,7 @@ import (
 func TestRbtree(t *testing.T) {
 	rbtree := NewRBTree()
 
-	datas := []int64{1, 2, 3, 4, 5, 6, 7, 8}
+	datas := []int64{1, 4, 5, 6, 7, 8, 8}
 
 	for _, num := range datas {
 		rbtree.Insert(num)
