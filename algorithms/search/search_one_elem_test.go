@@ -243,3 +243,27 @@ func BenchmarkHashTableSearch(b *testing.B) {
 		ht.HashTableSearch(99267)
 	}
 }
+
+/****************************红黑树*****************************/
+
+func TestRBTreeSearch(t *testing.T) {
+	datas := GetRandNumsJSON("sorted.txt")
+	rbtree := NewRBTree(datas...)
+	if e := rbtree.RBTreeSearch(rbtree.GetRoot(), 99267); e {
+		t.Logf("exist in rbtree!!!")
+	} else {
+		t.Errorf("Error: expected: %t, actual: %t", true, false)
+	}
+}
+
+
+func BenchmarkRBTreeSearch(b *testing.B) {
+	b.StopTimer()
+	datas := GetRandNumsJSON("sorted.txt")
+	rbtree := NewRBTree(datas...)
+	b.StartTimer()
+
+	for i := 0; i < b.N; i++ {
+		rbtree.RBTreeSearch(rbtree.GetRoot(), 99267)
+	}
+}

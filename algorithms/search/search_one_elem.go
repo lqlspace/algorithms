@@ -8,6 +8,7 @@ package search
 import (
 	"container/list"
 	"fmt"
+	"github.com/lqlspace/algorithms/data_structures/red_black_tree"
 )
 
 type SliceInt []int
@@ -371,3 +372,16 @@ func (ht HashTable) HashTableSearch(key int) bool {
 
 	return false
 }
+
+
+/*************************红黑树***************************/
+
+func NewRBTree(nums ...int) *rbtree.RBTree {
+	rbtree := rbtree.NewRBTree()
+	for _, v := range nums {
+		rbtree.Insert(int64(v))
+	}
+
+	return rbtree
+}
+
