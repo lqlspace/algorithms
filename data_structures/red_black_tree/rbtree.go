@@ -121,3 +121,18 @@ func printTreeInLog(pnode *RBNode, front string) {
 		printTreeInLog(pnode.right, front+"-(r)|")
 	}
 }
+
+
+func (rbtree *RBTree)RBTreeSearch(pnode *RBNode, value int64) bool {
+	if pnode == nil {
+		return false
+	}
+
+	if value < pnode.value {
+		rbtree.RBTreeSearch(pnode.left, value)
+	} else if value > pnode.value {
+		rbtree.RBTreeSearch(pnode.right, value)
+	}
+
+	return true
+}
