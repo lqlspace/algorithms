@@ -42,8 +42,8 @@ func ShellSort(arr Interface, a, b int) {
 	key := n / 2
 	for key > 0 {
 		for i := key; i < n; i++ {
-			for j := i; j >= key && arr.Less(j,j-key); j -= key {
-				arr.Swap(j, j-key)
+			for j := i; j >= key && arr.Less(a + j,a + j-key); j -= key {
+				arr.Swap(a + j, a + j-key)
 			}
 		}
 		key = key / 2
