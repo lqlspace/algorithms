@@ -66,4 +66,46 @@ func SelectionSort(arr Interface, a, b int) {
 }
 
 
+/************************************归并排序**************************************/
+//自顶向下实现
+func merge(aux, arr []int, low, mid, high int) {
+	i := low
+	j := mid + 1
 
+	for k := low; k <= high; k++ {
+		aux[k] =  arr[k]
+	}
+
+	for k := low; k <= high; k++ {
+		if i > mid {
+			arr[k] = aux[j]
+			j++
+		} else if j > high {
+			arr[k] = aux[i]
+			i++
+		} else if aux[j] < aux[i] {
+			arr[k] = aux[j]
+			j++
+		} else {
+			arr[k] = aux[i]
+			i++
+		}
+	}
+}
+
+
+func sort(aux, arr []int, low, high int) {
+	if low >= high {
+		return
+	}
+	mid := (low + high) / 2
+	sort(aux, arr, low, mid)
+	sort(aux, arr, mid+1, high)
+	merge(aux, arr, low, mid, high)
+}
+
+func MergeSort(arr []int) {
+	aux := make([]int, len(arr))
+
+	sort(aux, arr, 0, len(arr)-1)
+}

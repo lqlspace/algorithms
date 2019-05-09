@@ -23,3 +23,10 @@ func TestShellSortIntSlice(t *testing.T) {
 	ShellSort(datas, 0, len(datas))
 	t.Log(datas)
 }
+
+
+func TestMergeSortIntSlice(t *testing.T) {
+	datas := IntSlice{-3, 2, 9, 2, 1, 4, 6, 4, 5}
+	MergeSort(datas)
+	t.Log(datas)
+}
