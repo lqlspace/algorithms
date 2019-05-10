@@ -22,7 +22,8 @@ func Heapify(items []int, n, idx int) {
 
 
 
-func HeapSort(items []int, length int) {
+func HeapSort(items []int) {
+	length := len(items)
 	//Build heap
 	for i := length/2-1; i >= 0; i-- {
 		Heapify(items, length, i)

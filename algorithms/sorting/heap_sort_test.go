@@ -9,7 +9,7 @@ import (
 func TestHeapSort(t *testing.T) {
 	items := randnum.RandomIntSlice(30)
 	t.Log(items)
-	HeapSort(items, len(items))
+	HeapSort(items)
 	for i := 0; i < len(items)-1; i++ {
 		if items[i] > items[i+1] {
 			t.Error("[error] heap sort error!")
