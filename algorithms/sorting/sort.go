@@ -33,20 +33,15 @@ func InsertionSort(arr Interface, a, b int) {
 }
 
 //希尔排序是对插入排序的改进，分组可缩小无序数组规模，而后合并成部分有序数组也可以发挥插入排序的长处
-func ShellSort(arr Interface, a, b int) {
-	n := b - a
-	if n < 2 {
-		return
-	}
+func ShellSort(arr Interface, begin, end int) {
+	n := end - begin
 
-	key := n / 2
-	for key > 0 {
-		for i := key; i < n; i++ {
-			for j := i; j >= key && arr.Less(a + j,a + j-key); j -= key {
-				arr.Swap(a + j, a + j-key)
+	for key := n/2; key > 0; key /= 2 {
+		for i := begin+key; i < end; i++ {
+			for j := i; j >= begin+key && arr.Less(j,j-key); j -= key {
+				arr.Swap(j, j-key)
 			}
 		}
-		key = key / 2
 	}
 }
 
