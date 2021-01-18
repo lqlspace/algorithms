@@ -72,7 +72,7 @@ func getIntersectionNode2(headA, headB *ListNode) *ListNode {
 	return nil
 }
 
-// 双指针
+// 双指针（时间复杂度O(N), 空间复杂度O(1)）
 func getIntersectionNode3(headA, headB *ListNode) *ListNode {
 	pa, pb := headA, headB
 
