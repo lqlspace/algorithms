@@ -14,25 +14,11 @@ func swapPairs(head *ListNode) *ListNode {
 		return head
 	}
 
-	p := swapPairs(head.Next.Next)
-	head.Next.Next = nil
-	head = reverseList(head)
-	head.Next.Next = p
+	new := head.Next
+	head.Next = swapPairs(new.Next)
+	new.Next = head
 
-	return head
-}
-
-
-func reverseList(head *ListNode) *ListNode {
-	sentinel := new(ListNode)
-	for head != nil {
-		p := head
-		head = head.Next
-		p.Next = sentinel.Next
-		sentinel.Next = p
-	}
-
-	return sentinel.Next
+	return new
 }
 
 // 迭代法，时间复杂度O(N),空间复杂度O(1)
@@ -43,13 +29,13 @@ func swapPairs2(head *ListNode) *ListNode {
 
 	sentinel := new(ListNode)
 	sentinel.Next = head
-	cur := sentinel
-	for cur.Next != nil && cur.Next.Next != nil {
-		skip := cur.Next.Next.Next
-		cur.Next.Next.Next = nil
-		cur.Next = reverseList(cur.Next)
-		cur.Next.Next.Next = skip
-		cur = cur.Next.Next
+	pre := sentinel
+	for pre.Next != nil && pre.Next.Next != nil {
+		node := pre.Next.Next
+		pre.Next.Next = node.Next
+		node.Next = pre.Next
+		pre.Next = node
+		pre = pre.Next.Next
 	}
 
 	return sentinel.Next
