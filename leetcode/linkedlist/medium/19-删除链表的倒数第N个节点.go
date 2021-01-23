@@ -9,26 +9,21 @@ package medium
  */
 // 两次遍历(时间复杂度O(N)，空间复杂度O(1))
 func removeNthFromEnd1(head *ListNode, n int) *ListNode {
+	sentinel := new(ListNode)
+	sentinel.Next = head
+
 	var num int
-	cur := head
+	cur := sentinel
 	for cur != nil {
 		num++
 		cur = cur.Next
 	}
 
-	if num < n {
-		return nil
-	}
-
-	sentinel := new(ListNode)
-	sentinel.Next = head
-
-	pos := num - n
+	pos := num - (n+1)
 	cur = sentinel
 	for i := 0; i < pos; i++ {
 		cur = cur.Next
 	}
-
 	cur.Next = cur.Next.Next
 
 	return sentinel.Next
