@@ -51,41 +51,47 @@ func isPalindrome2(head *ListNode) bool {
 }
 
 // 快慢指针+反转链表（会修改链表结构，非并发安全，时间复杂度O(N)，空间复杂度O(1)）
-func isPalindrome3(head *ListNode) bool {
-	if head == nil || head.Next == nil {
-		return true
-	}
-
-	faster, slower := head, head
-	for faster != nil && faster.Next != nil {
-		slower = slower.Next
-		faster = faster.Next.Next
-	}
-
-	rev := reverseLink(slower)
-
-	for rev != nil || rev != slower {
-		if head.Val != rev.Val {
-			return false
-		}
-		rev = rev.Next
-	}
-
-	return true
-}
-
-func reverseLink(node *ListNode) *ListNode {
-	if node == nil || node.Next == nil {
-		return node
-	}
-
+func reverseList(head *ListNode) *ListNode {
 	sentinel := new(ListNode)
-	for node != nil {
-		p := node
-		node = node.Next
+	for head != nil {
+		p := head
+		head = head.Next
 		p.Next = sentinel.Next
 		sentinel.Next = p
 	}
 
 	return sentinel.Next
+}
+
+1 0 0
+
+func endOfFirstHalf(head *ListNode) *ListNode {
+	slow, fast := head, head
+	for fast.Next != nil && fast.Next.Next != nil {
+		fast = fast.Next.Next
+		slow = slow.Next
+	}
+
+	return slow
+
+}
+func isPalindrome3(head *ListNode) bool {
+	if head == nil {
+		return true
+	}
+
+	firstHalfEnd := endOfFirstHalf(head)
+	secondHalfStart := reverseList(firstHalfEnd.Next)
+
+	for head != nil && secondHalfStart != nil {
+		if head.Val != secondHalfStart.Val {
+			return false
+		}
+		head = head.Next
+		secondHalfStart = secondHalfStart.Next
+	}
+
+	firstHalfEnd.Next = reverseList(secondHalfStart)
+
+	return true
 }
