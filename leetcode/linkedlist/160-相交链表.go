@@ -74,21 +74,22 @@ func getIntersectionNode2(headA, headB *ListNode) *ListNode {
 
 // 双指针（时间复杂度O(N), 空间复杂度O(1)）
 func getIntersectionNode3(headA, headB *ListNode) *ListNode {
-	pa, pb := headA, headB
-
-	for pa != pb {
-		if pa != nil {
-			pa = pa.Next
+	p1, p2 := headA, headB
+	for p1 != p2 {
+		if p1 == nil {
+			p1 = headB
 		} else {
-			pa = headB
+			p1 = p1.Next
 		}
-		if pb != nil {
-			pb = pb.Next
+
+		if p2 == nil {
+			p2 = headA
 		} else {
-			pb = headA
+			p2 = p2.Next
 		}
 	}
-	return pa
+
+	return p1
 }
 
 
