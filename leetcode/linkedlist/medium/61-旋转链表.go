@@ -85,14 +85,26 @@ func rotateRight2(head *ListNode, k int) *ListNode {
 	return sentinel.Next
 }
 
+// 首尾相连成环
+func rotateRight3(head *ListNode, k int) *ListNode {
+	if head == nil {
+		return nil
+	}
 
-1 2 3 4 5
-5 1 2 3 4
-4 5 1 2 3
-3 4 5 1 2
-2 3 4 5 1
-1 2 3 4 5
+	num, cur :=1,  head
+	for cur.Next != nil {
+		num++
+		cur = cur.Next
+	}
+	cur.Next = head
 
-5 1 2 3 4
+	step := num - (k % num)
 
-6 % 5
+	for i := 0; i < step; i++ {
+		cur = cur.Next
+	}
+	head = cur.Next
+	cur.Next = nil
+
+	return head
+}
