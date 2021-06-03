@@ -42,4 +42,8 @@ func Test_addBinary(t *testing.T)  {
 	b := "01"
 
 	t.Log(addBinary(a, b))
+
+	a = "0"
+	b = "111"
+	t.Log(addBinary2(a, b))
 }

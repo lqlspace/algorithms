@@ -7,6 +7,10 @@ import (
 /*
 1. 在一个数组中，与下标i元素对称的是下标为len(a)-1-i的元素；
 2. 数值型字符串转整型，直接减去'0'
+3. 整型转字符串，strconv
+3. 复杂度
+（1）时间复杂度O（n），顺序遍历a和b
+（2）空间复杂度O（1），使用常数个变量
  */
 func addBinary(a string, b string) string {
 	lenA, lenB := len(a), len(b)
