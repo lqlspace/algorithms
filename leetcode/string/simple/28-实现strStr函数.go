@@ -56,7 +56,7 @@ func strStr2(haystack string, needle string) int {
 func strStr3(haystack, needle string) int {
 	n, m := len(haystack), len(needle)
 	for i := 0; i <= n - m; i++ {
-		flag := true
+		flag := true  // 此处flag适应的场景：满足条件就一直执行，一旦不满足，立即跳出
 		for j := range needle {
 			if haystack[i+j] != needle[j] {
 				flag = false

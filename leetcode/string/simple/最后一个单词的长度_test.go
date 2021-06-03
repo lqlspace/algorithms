@@ -36,3 +36,10 @@ func Test_strStr3(t *testing.T)  {
 	pos = strStr1(haystack, needle)
 	t.Log(pos)
 }
+
+func Test_addBinary(t *testing.T)  {
+	a := "1010"
+	b := "01"
+
+	t.Log(addBinary(a, b))
+}
