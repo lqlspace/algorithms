@@ -53,3 +53,21 @@ func Test_reverseString(t *testing.T)  {
 
 	t.Log(string(sliceStr))
 }
+
+func Test_reverseVowels(t *testing.T)  {
+	str := "abedEbA"
+	str = reverseVowels(str)
+	t.Log(str)
+
+	str = "aabdefgOh"
+	str = reverseVowels(str)
+	t.Log(str)
+
+	str = ""
+	str = reverseVowels(str)
+	t.Log(str)
+
+	str = "I"
+	str = reverseVowels(str)
+	t.Log(str)
+}
