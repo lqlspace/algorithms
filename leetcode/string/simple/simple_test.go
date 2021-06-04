@@ -71,3 +71,16 @@ func Test_reverseVowels(t *testing.T)  {
 	str = reverseVowels(str)
 	t.Log(str)
 }
+
+func Test_addString(t *testing.T)  {
+	a := "5024"
+	b := "100"
+
+	c := addString(a, b)
+	t.Log(c)
+
+	a = "8096"
+	b = "2107"
+	c = addString(a, b)
+	t.Log(c)
+}
