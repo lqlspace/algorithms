@@ -35,6 +35,7 @@ func Test_strStr3(t *testing.T)  {
 
 	pos = strStr1(haystack, needle)
 	t.Log(pos)
+
 }
 
 func Test_addBinary(t *testing.T)  {
@@ -43,7 +44,12 @@ func Test_addBinary(t *testing.T)  {
 
 	t.Log(addBinary(a, b))
 
-	a = "0"
-	b = "111"
-	t.Log(addBinary2(a, b))
+}
+
+func Test_reverseString(t *testing.T)  {
+	str := "abcde"
+	sliceStr := []byte(str)
+	reverseString(sliceStr)
+
+	t.Log(string(sliceStr))
 }
