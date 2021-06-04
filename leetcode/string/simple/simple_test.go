@@ -84,3 +84,17 @@ func Test_addString(t *testing.T)  {
 	c = addString(a, b)
 	t.Log(c)
 }
+
+func Test_countSegments(t *testing.T)  {
+	words := "hello, world, b cd"
+	count := countSegments(words)
+	t.Log(count)
+
+	words = ""
+	count = countSegments(words)
+	t.Log(count)
+
+	words = "  a  b  "
+	count = countSegments(words)
+	t.Log(count)
+}
