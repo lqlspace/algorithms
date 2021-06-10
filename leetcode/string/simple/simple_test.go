@@ -113,3 +113,14 @@ func Test_repeatedSubstring(t *testing.T)  {
 	t.Log(repeatedSubstringPattern2(a))
 
 }
+
+func Test_detectCapitalWord(t *testing.T)  {
+	a := "abcd"
+	t.Log(detectCapitalUse(a))
+
+	a = "Hello"
+	t.Log(detectCapitalUse(a))
+
+	a = "USA"
+	t.Log(detectCapitalUse(a))
+}
