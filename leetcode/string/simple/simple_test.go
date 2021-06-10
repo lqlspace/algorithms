@@ -124,3 +124,21 @@ func Test_detectCapitalWord(t *testing.T)  {
 	a = "USA"
 	t.Log(detectCapitalUse(a))
 }
+
+func Test_findUSlength(t *testing.T)  {
+	a := "abc"
+	b := "abc"
+	t.Log(findUSlength(a, b))
+
+	a = "abc"
+	b = "abd"
+	t.Log(findUSlength(a, b))
+
+	a = "abc"
+	b = ""
+	t.Log(findUSlength(a, b))
+
+	a = "abc"
+	b = "abdee"
+	t.Log(findUSlength(a, b))
+}
