@@ -98,3 +98,18 @@ func Test_countSegments(t *testing.T)  {
 	count = countSegments(words)
 	t.Log(count)
 }
+
+func Test_repeatedSubstring(t *testing.T)  {
+	a := "abcabcabcabc"
+	t.Log(repeatedSubstringPattern(a))
+	t.Log(repeatedSubstringPattern2(a))
+
+	a = "abc"
+	t.Log(repeatedSubstringPattern(a))
+	t.Log(repeatedSubstringPattern2(a))
+
+	a = ""
+	t.Log(repeatedSubstringPattern(a))
+	t.Log(repeatedSubstringPattern2(a))
+
+}
