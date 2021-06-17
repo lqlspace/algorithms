@@ -162,3 +162,13 @@ func Test_checkRecord(t *testing.T)  {
 	award = checkRecord(s)
 	t.Log(award)
 }
+
+func Test_reverseWords(t *testing.T)  {
+	s := "hello words"
+	s = reverseWords(s)
+	t.Log(s)
+
+	s = "ab cd e"
+	s = reverseWords(s)
+	t.Log(s)
+}
