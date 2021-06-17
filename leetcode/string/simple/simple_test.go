@@ -152,3 +152,13 @@ func Test_reverseStr(t *testing.T)  {
 	s = reverseStr(s, 3)
 	t.Log(s)
 }
+
+func Test_checkRecord(t *testing.T)  {
+	s := "PPL"
+	award := checkRecord(s)
+	t.Log(award)
+
+	s = "LALL"
+	award = checkRecord(s)
+	t.Log(award)
+}
