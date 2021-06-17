@@ -172,3 +172,47 @@ func Test_reverseWords(t *testing.T)  {
 	s = reverseWords(s)
 	t.Log(s)
 }
+
+func Test_tree2str(t *testing.T)  {
+	tree := &TreeNode{
+		Val:   1,
+		Left:  &TreeNode{
+			Val:   2,
+			Left:  &TreeNode{
+				Val:   4,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: nil,
+		},
+		Right: &TreeNode{
+			Val:   3,
+			Left:  nil,
+			Right: nil,
+		},
+	}
+
+	s := tree2str(tree)
+	t.Log(s)
+
+	tree = &TreeNode{
+		Val:   1,
+		Left:  &TreeNode{
+			Val:   2,
+			Left:  nil,
+			Right: &TreeNode{
+				Val:   4,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &TreeNode{
+			Val:   3,
+			Left:  nil,
+			Right: nil,
+		},
+	}
+
+	s = tree2str(tree)
+	t.Log(s)
+}
