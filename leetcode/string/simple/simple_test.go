@@ -142,3 +142,13 @@ func Test_findUSlength(t *testing.T)  {
 	b = "abdee"
 	t.Log(findUSlength(a, b))
 }
+
+func Test_reverseStr(t *testing.T)  {
+	s := "abc"
+	s = reverseStr(s, 2)
+	t.Log(s)
+
+	s = "abcdef"
+	s = reverseStr(s, 3)
+	t.Log(s)
+}
