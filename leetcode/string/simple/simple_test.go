@@ -216,3 +216,13 @@ func Test_tree2str(t *testing.T)  {
 	s = tree2str(tree)
 	t.Log(s)
 }
+
+func Test_judgeCircle(t *testing.T)  {
+	s := "UUDDLURD"
+	res := judgeCircle(s)
+	t.Log(res)
+
+	s = "UU"
+	res = judgeCircle(s)
+	t.Log(res)
+}
