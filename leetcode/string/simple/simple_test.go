@@ -256,3 +256,9 @@ func Test_toLowerCase(t *testing.T)  {
 	s = toLowerCase(s)
 	t.Log(s)
 }
+
+func Test_rotatedDigits(t *testing.T)  {
+	a := 10
+	ans := rotatedDigits(a)
+	t.Log(ans)
+}
