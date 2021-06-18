@@ -226,3 +226,17 @@ func Test_judgeCircle(t *testing.T)  {
 	res = judgeCircle(s)
 	t.Log(res)
 }
+
+func Test_validPalindrome(t *testing.T)  {
+	s := "aba"
+	res := validPalindrome(s)
+	t.Log(res)
+
+	s = "abca"
+	res = validPalindrome(s)
+	t.Log(res)
+
+	s = "abcca"
+	res = validPalindrome(s)
+	t.Log(res)
+}
