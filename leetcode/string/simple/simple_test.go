@@ -250,3 +250,9 @@ func Test_countBinarySubstrings(t *testing.T)  {
 	count = countBinarySubstrings(s)
 	t.Log(count)
 }
+
+func Test_toLowerCase(t *testing.T)  {
+	s := "Hello World"
+	s = toLowerCase(s)
+	t.Log(s)
+}
