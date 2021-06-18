@@ -240,3 +240,13 @@ func Test_validPalindrome(t *testing.T)  {
 	res = validPalindrome(s)
 	t.Log(res)
 }
+
+func Test_countBinarySubstrings(t *testing.T)  {
+	s := "00110011"
+	count := countBinarySubstrings(s)
+	t.Log(count)
+
+	s = "01"
+	count = countBinarySubstrings(s)
+	t.Log(count)
+}
