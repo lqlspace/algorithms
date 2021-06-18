@@ -1,6 +1,7 @@
 package simple
 
 
+// 时间复杂度O(Nlog(N)), 空间复杂度O(LOG(N))存储good函数调用栈
 func rotatedDigits(n int) int {
 	var ans int
 	var flag bool
