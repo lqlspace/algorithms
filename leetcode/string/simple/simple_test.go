@@ -287,3 +287,30 @@ func Test_toGoatLatin(t *testing.T)  {
 	}
 	t.Log(ans)
 }
+
+func Test_buddyStrings(t *testing.T)  {
+	s := "ab"
+	g := "ba"
+	ans := buddyStrings(s, g)
+	t.Log(ans)
+
+	s = "ab"
+	g = "ab"
+	ans = buddyStrings(s, g)
+	t.Log(ans)
+
+	s = "aa"
+	g = "aa"
+	ans = buddyStrings(s, g)
+	t.Log(ans)
+
+	s = "aaaaaaabc"
+	g = "aaaaaaacb"
+	ans = buddyStrings(s, g)
+	t.Log(ans)
+
+	s = ""
+	g = "aa"
+	ans = buddyStrings(s, g)
+	t.Log(ans)
+}
