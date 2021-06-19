@@ -265,6 +265,13 @@ func Test_rotatedDigits(t *testing.T)  {
 
 func Test_uniqueMorseRepresentations(t *testing.T)  {
 	words := []string{"gin", "zen", "gig", "msg"}
-	n := uniqueMorseRepresentations(words)
+	n := uniqueMorseRepresentations3(words)
 	t.Log(n)
+}
+
+func Test_mostCommonWord(t *testing.T)  {
+	paragraph := "Bob hit a ball, the hit BALL flew far after it was hit."
+	banned := []string{"hit"}
+	word := mostCommonWord(paragraph, banned)
+	t.Log(word)
 }
