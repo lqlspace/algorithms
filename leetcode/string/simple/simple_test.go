@@ -351,3 +351,13 @@ func Test_isLongPressedName(t *testing.T)  {
 	res := isLongPressedName(name, typed)
 	t.Log(res)
 }
+
+func Test_numUniqueEmails(t *testing.T)  {
+	emails := []string{"test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"}
+	num := numUniqueEmails(emails)
+	t.Log(num)
+
+	emails = []string{"test.email+alex@leetcode.com","test.email.leet+alex@code.com"}
+	num = numUniqueEmails(emails)
+	t.Log(num)
+}
