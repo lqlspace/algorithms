@@ -262,3 +262,9 @@ func Test_rotatedDigits(t *testing.T)  {
 	ans := rotatedDigits(a)
 	t.Log(ans)
 }
+
+func Test_uniqueMorseRepresentations(t *testing.T)  {
+	words := []string{"gin", "zen", "gig", "msg"}
+	n := uniqueMorseRepresentations(words)
+	t.Log(n)
+}
