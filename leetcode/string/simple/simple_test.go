@@ -275,3 +275,15 @@ func Test_mostCommonWord(t *testing.T)  {
 	word := mostCommonWord(paragraph, banned)
 	t.Log(word)
 }
+
+func Test_toGoatLatin(t *testing.T)  {
+	para := "I speak Goat Latin"
+	ans := toGoatLatin(para)
+	res := "Imaa peaksmaaa oatGmaaaa atinLmaaaaa"
+	if ans != res {
+		t.Log("not equal")
+	} else {
+		t.Log("equal")
+	}
+	t.Log(ans)
+}
