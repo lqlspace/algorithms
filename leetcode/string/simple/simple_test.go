@@ -314,3 +314,13 @@ func Test_buddyStrings(t *testing.T)  {
 	ans = buddyStrings(s, g)
 	t.Log(ans)
 }
+
+func Test_reverseOnlyLetters(t *testing.T)  {
+	s := "ab-cd"
+	res := reverseOnlyLetters(s)
+	t.Log(res)
+
+	s = "a-bC-dEf-ghIj"
+	res = reverseOnlyLetters(s)
+	t.Log(res)
+}
