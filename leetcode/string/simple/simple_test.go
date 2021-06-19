@@ -324,3 +324,30 @@ func Test_reverseOnlyLetters(t *testing.T)  {
 	res = reverseOnlyLetters(s)
 	t.Log(res)
 }
+
+func Test_isLongPressedName(t *testing.T)  {
+	//name := "alex"
+	//typed := "aaleex"
+	//res := isLongPressedName(name, typed)
+	//t.Log(res)
+	//
+	//name = "saeed"
+	//typed = "ssaaedd"
+	//res = isLongPressedName(name, typed)
+	//t.Log(res)
+	//
+	//name = "leelee"
+	//typed = "lleeelee"
+	//res = isLongPressedName(name, typed)
+	//t.Log(res)
+	//
+	//name = "vtkgn"
+	//typed = "vttkgnn"
+	//res = isLongPressedName(name, typed)
+	//t.Log(res)
+
+	name := "abcd"
+	typed := "aaabbbcccddd"
+	res := isLongPressedName(name, typed)
+	t.Log(res)
+}
