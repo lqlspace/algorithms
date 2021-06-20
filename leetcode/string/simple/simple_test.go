@@ -361,3 +361,21 @@ func Test_numUniqueEmails(t *testing.T)  {
 	num = numUniqueEmails(emails)
 	t.Log(num)
 }
+
+func Test_reorderLogFiles(t *testing.T)  {
+	logs := []string{"dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"}
+	logs = reorderLogFiles(logs)
+	t.Log(logs)
+
+	logs = []string{"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"}
+	logs = reorderLogFiles(logs)
+	t.Log(logs)
+
+	logs = []string{"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo","a2 act car"}
+	logs = reorderLogFiles(logs)
+	t.Log(logs)
+
+	logs = []string{"dig1 8 1 5 1","let1 art zero can","dig2 3 6","let2 own kit dig","let3 art zero"}
+	logs = reorderLogFiles(logs)
+	t.Log(logs)
+}
