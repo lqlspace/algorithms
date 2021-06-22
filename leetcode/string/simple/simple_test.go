@@ -400,3 +400,13 @@ func Test_defangIPaddr(t *testing.T)  {
 	ip = defangIPaddr(ip)
 	t.Log(ip)
 }
+
+func Test_reformatDate(t *testing.T)  {
+	a := "1st Feb 2021"
+	a = reformatDate(a)
+	t.Log(a)
+
+	a = "30th Feb 2022"
+	a = reformatDate(a)
+	t.Log(a)
+}
