@@ -394,3 +394,9 @@ func Test_gcdOfStrings(t *testing.T)  {
 	res = gcdOfStrings(a, b)
 	t.Log(res)
 }
+
+func Test_defangIPaddr(t *testing.T)  {
+	ip := "1.1.1.127"
+	ip = defangIPaddr(ip)
+	t.Log(ip)
+}
