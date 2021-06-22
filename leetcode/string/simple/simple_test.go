@@ -379,3 +379,18 @@ func Test_reorderLogFiles(t *testing.T)  {
 	logs = reorderLogFiles(logs)
 	t.Log(logs)
 }
+
+func Test_gcdOfStrings(t *testing.T)  {
+	a := "AB"
+	b := "ABAB"
+	res := gcdOfStrings(a, b)
+	t.Log(res)
+
+	a = "ABABAB"
+	res = gcdOfStrings(a, b)
+	t.Log(res)
+
+	a = "A"
+	res = gcdOfStrings(a, b)
+	t.Log(res)
+}
