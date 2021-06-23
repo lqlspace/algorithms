@@ -410,3 +410,21 @@ func Test_reformatDate(t *testing.T)  {
 	a = reformatDate(a)
 	t.Log(a)
 }
+
+func Test_maxNumberOfBalloons(t *testing.T)  {
+	s := "balloonsballoon"
+	num := maxNumberOfBalloons(s)
+	t.Log(num)
+
+	s =  "nlaebolko"
+	num = maxNumberOfBalloons(s)
+	t.Log(num)
+
+	s = "leetcode"
+	num = maxNumberOfBalloons(s)
+	t.Log(num)
+
+	s = "balon"
+	num = maxNumberOfBalloons(s)
+	t.Log(num)
+}
