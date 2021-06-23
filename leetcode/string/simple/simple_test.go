@@ -446,3 +446,21 @@ func Test_balancedStringSplit(t *testing.T)  {
 	num = balancedStringSplit(s)
 	t.Log(num)
 }
+
+func Test_freqAlphabets(t *testing.T)  {
+	s := "10#11#12"
+	res := freqAlphabets(s)
+	t.Log(res)
+
+	s = "1326#"
+	res = freqAlphabets(s)
+	t.Log(res)
+
+	s = "25#"
+	res = freqAlphabets(s)
+	t.Log(res)
+
+	s = "12345678910#11#12#13#14#15#16#17#18#19#20#21#22#23#24#25#26#"
+	res = freqAlphabets(s)
+	t.Log(res)
+}
