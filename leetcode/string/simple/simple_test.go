@@ -464,3 +464,13 @@ func Test_freqAlphabets(t *testing.T)  {
 	res = freqAlphabets(s)
 	t.Log(res)
 }
+
+func Test_removePalindromeSub(t *testing.T)  {
+	s := "ababa"
+	num := removePalindromeSub(s)
+	t.Log(num)
+
+	s = "abb"
+	num = removePalindromeSub(s)
+	t.Log(num)
+}
