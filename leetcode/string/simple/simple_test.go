@@ -428,3 +428,21 @@ func Test_maxNumberOfBalloons(t *testing.T)  {
 	num = maxNumberOfBalloons(s)
 	t.Log(num)
 }
+
+func Test_balancedStringSplit(t *testing.T)  {
+	s := "RLRRLLRLRL"
+	num := balancedStringSplit(s)
+	t.Log(num)
+
+	s = "RLLLLRRRLR"
+	num = balancedStringSplit(s)
+	t.Log(num)
+
+	s = "LLLLRRRR"
+	num = balancedStringSplit(s)
+	t.Log(num)
+
+	s = "RLRRRLLRLL"
+	num = balancedStringSplit(s)
+	t.Log(num)
+}
