@@ -474,3 +474,17 @@ func Test_removePalindromeSub(t *testing.T)  {
 	num = removePalindromeSub(s)
 	t.Log(num)
 }
+
+func Test_largestOddNumber(t *testing.T)  {
+	s := "52"
+	res := largestOddNumber(s)
+	t.Log(res)
+
+	s = "4206"
+	res = largestOddNumber(s)
+	t.Log(res)
+
+	s = "35427"
+	res = largestOddNumber(s)
+	t.Log(res)
+}
