@@ -1,4 +1,4 @@
-package other
+package bytedance
 
 import (
 	"math"

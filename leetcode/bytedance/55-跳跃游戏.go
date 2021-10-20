@@ -1,4 +1,4 @@
-package other
+package bytedance
 
 
 func canJump(nums []int) bool {
