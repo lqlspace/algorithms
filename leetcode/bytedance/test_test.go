@@ -46,3 +46,9 @@ func TestMerge(t *testing.T) {
 		fmt.Printf("%d ", v)
 	}
 }
+
+func TestCuttingRope(t *testing.T) {
+	val :=  cuttingRope(8)
+
+	fmt.Println(val)
+}
