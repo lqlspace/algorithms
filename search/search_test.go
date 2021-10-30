@@ -35,3 +35,9 @@ func TestBinarySearchRecursive(t *testing.T) {
 	idx = BinarySearchRecursive(arr, e)
 	t.Log(idx)
 }
+
+func TestBinarySearchFirst(t *testing.T) {
+	arr := []int{1, 1, 2, 2, 2, 3, 4, 4}
+	idx := BinarySearchFirst(arr, 2)
+	t.Log(idx)
+}
