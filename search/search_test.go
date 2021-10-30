@@ -41,3 +41,12 @@ func TestBinarySearchFirst(t *testing.T) {
 	idx := BinarySearchFirst(arr, 2)
 	t.Log(idx)
 }
+
+func TestBinarySearchLast(t *testing.T) {
+	arr := []int{1, 1, 2, 2, 2, 3, 4, 4, 5}
+	idx := BinarySearchLast(arr, 2)
+	t.Log(idx)
+
+	idx = BinarySearchLast(arr, 4)
+	t.Log(idx)
+}
