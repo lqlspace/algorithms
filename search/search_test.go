@@ -50,3 +50,15 @@ func TestBinarySearchLast(t *testing.T) {
 	idx = BinarySearchLast(arr, 4)
 	t.Log(idx)
 }
+
+func TestBinarySearchGE(t *testing.T) {
+	arr := []int{1, 2, 3, 3, 3, 4, 5, 6}
+	idx := BinarySearchGE(arr, 3)
+	t.Log(idx)
+}
+
+func TestBinarySearchLE(t *testing.T) {
+	arr := []int{1, 2, 3, 3, 3, 4, 4, 5, 6}
+	idx := BinarySearchLE(arr, 4)
+	t.Log(idx)
+}
