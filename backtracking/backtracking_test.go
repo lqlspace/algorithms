@@ -13,7 +13,10 @@ func TestCal8Queue(t *testing.T) {
 // 0-1背包问题
 func TestBag(t *testing.T) {
 	items := []int{3, 5, 13, 15, 25}
-	Bag(0, 0, 21, items)
+	var maxWeight = -1
+	Bag(0, 0, 21, items, &maxWeight)
+
+	println(maxWeight)
 }
 
 
