@@ -31,13 +31,13 @@ func (g *Graph) BFS(s, t int) {
 		for e := linkedList.Front(); e != nil; e = e.Next() {
 			k := e.Value.(int)
 			if !visited[k] {
+				visited[k] = true
 				prev[k] = top
+				queue = append(queue, k)
 				if k == t {
 					isFound = true
 					break
 				}
-				queue = append(queue, k)
-				visited[k] = true
 			}
 		}
 	}
@@ -52,12 +52,15 @@ func (g *Graph) BFS(s, t int) {
 
 // print path recursively
 func printPrev(prev []int, s, t int) {
-	if t == s || prev[t] == -1 {
+	// 递归终止条件
+	if t == s {
 		fmt.Printf("%d ", t)
-	} else {
-		printPrev(prev, s, prev[t])
-		fmt.Printf("%d ", t)
+		return
 	}
+
+	// 递归打印之前的节点
+	printPrev(prev, s, prev[t])
+	fmt.Printf("%d ", t)
 }
 
 

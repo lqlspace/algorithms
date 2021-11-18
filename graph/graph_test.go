@@ -23,3 +23,7 @@ func init()  {
 func TestGraph_BFS(t *testing.T) {
 	graph.BFS(0, 7)
 }
+
+func TestGraph_DFS(t *testing.T) {
+	graph.DFS(0, 7)
+}
