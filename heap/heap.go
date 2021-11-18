@@ -1,67 +1,72 @@
 package heap
 
-type Heap struct  {
-	arr []int
+import (
+	"fmt"
+)
+
+type Heap struct {
+	a []int
 	cap int
-	count int
+	cnt int
 }
 
-// init  heap
 func NewHeap(capacity int) *Heap {
 	return &Heap{
+		a:   make([]int, capacity+1),
 		cap: capacity,
-		arr: make([]int, capacity+1),
-		count: 0,
+		cnt: 0,
 	}
 }
 
-// 大顶堆 从下往上堆化
 func (h *Heap) insert(data int) {
-	// defensive
-	if h.count == h.cap {
+	if h.cnt == h.cap {
 		return
 	}
 
-	h.count++
-	h.arr[h.count] = data
+	h.cnt++
+	h.a[h.cnt] = data
 
-	// compare with parent node
-	i := h.count
-	parent :=  i / 2
-	for parent > 0 && h.arr[parent] < h.arr[i] {
-		h.arr[parent], h.arr[i] = h.arr[i], h.arr[parent]
-		i := parent
-		parent =  i / 2
+	i := h.cnt
+	parent := i / 2
+	for parent > 0 && h.a[parent] < h.a[i] {
+		h.a[parent], h.a[i] = h.a[i], h.a[parent]
+		i = parent
+		parent = i / 2
 	}
 }
 
-// 删除堆顶
 func (h *Heap) removeMax() {
-	// defensive
-	if h.count == 0 {
+	if h.cnt == 0 {
 		return
 	}
 
-	h.arr[1], h.arr[h.count] = h.arr[h.count], h.arr[1]
-	h.count--
+	h.a[1], h.a[h.cnt] = h.a[h.cnt], h.a[1]
+	h.cnt--
+
+	h.heapifyUpToDown()
 }
 
-// 从上往下堆化
-func (h *Heap) heapifyUpToDown(a []int, count int) {
-	for i := 1; i <= count/2; {
-		maxIndex := i
-		if a[i] < a[i*2] {
-			maxIndex = i * 2
-		}
-		if i*2+1 <= count && a[maxIndex] < a[i*2+1] {
-			maxIndex = i * 2 + 1
+func (h *Heap) heapifyUpToDown() {
+	for i := 1; i <= h.cnt/2; {
+		maxIdx := i
+		if h.a[maxIdx] < h.a[i*2] {
+			maxIdx = i * 2
 		}
 
-		if maxIndex == i {
+		if i*2+1 <= h.cnt && h.a[maxIdx] < h.a[i*2+1] {
+			maxIdx = i * 2 + 1
+		}
+		if maxIdx == i {
 			break
 		}
-		a[i], a[maxIndex] = a[maxIndex], a[i]
-		i = maxIndex
+		h.a[i], h.a[maxIdx] = h.a[maxIdx], h.a[i]
+		i = maxIdx
 	}
 }
 
+func (h *Heap) PrintHeap() {
+	for i := 1; i <= h.cnt; i++ {
+		fmt.Printf("%d  ", h.a[i])
+	}
+	println()
+}
