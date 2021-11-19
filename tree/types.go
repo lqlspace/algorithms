@@ -1,18 +1,9 @@
 package tree
 
-import (
-	"fmt"
-)
-
-type BinaryTree struct {
+type BTree struct {
 	root *Node
 }
 
-func NewBinaryTree(data interface{}) *BinaryTree {
-	return &BinaryTree{
-		root: NewNode(data),
-	}
-}
 
 
 type Node struct {
@@ -21,12 +12,3 @@ type Node struct {
 	right *Node
 }
 
-func NewNode(data interface{}) *Node {
-	return &Node{
-		data: data,
-	}
-}
-
-func (n *Node) String() string {
-	return fmt.Sprintf("v:%+v, left:%+v, right:%+v", n.data, n.left, n.right)
-}
