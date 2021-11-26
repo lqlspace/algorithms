@@ -1,16 +1,9 @@
-package simple
+package list
 
 import (
 	"unsafe"
 )
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
 
 // 哈希表(时间复杂度O（N），空间复杂度O(N))
 func hasCycleMethod1(head *ListNode) bool {
@@ -20,6 +13,7 @@ func hasCycleMethod1(head *ListNode) bool {
 			return true
 		}
 		addrMap[unsafe.Pointer(head)] = struct{}{}
+		head = head.Next
 	}
 
 	return false

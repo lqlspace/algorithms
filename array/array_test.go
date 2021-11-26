@@ -18,3 +18,9 @@ func TestFind(t *testing.T) {
 	found = Find(arr,4, 4, 5)
 	t.Log(found)
 }
+
+func TestFind2(t *testing.T) {
+	str  := "1234"
+
+	t.Log(len(str))
+}

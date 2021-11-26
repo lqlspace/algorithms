@@ -1,12 +1,5 @@
-package simple
+package list
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
 
 // 哨兵节点（哨兵节点广泛应用于树和链表中，如伪头、伪尾、标记等，
 //它们是纯功能的，通常不保存任何数据，主要目的是使链表标准化，

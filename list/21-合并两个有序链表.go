@@ -1,12 +1,5 @@
-package simple
+package list
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
 
 // 递归（时间复杂度O(n+m)，空间复杂度O(n+m):递归函数需要消耗
 //栈空间，栈空间的大小取决于递归调用的深度。因为该题中递归函数

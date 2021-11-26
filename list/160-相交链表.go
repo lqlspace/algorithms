@@ -1,16 +1,10 @@
-package simple
+package list
 
 import (
 	"unsafe"
 )
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
+
 // 借助map（时间复杂度O(N), 空间复杂度O(N)）
 func getIntersectionNode1(headA, headB *ListNode) *ListNode {
 	if headA == nil || headB == nil {
@@ -91,5 +85,4 @@ func getIntersectionNode3(headA, headB *ListNode) *ListNode {
 
 	return p1
 }
-
 
