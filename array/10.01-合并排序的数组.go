@@ -1,22 +1,26 @@
 package array
 
+/*
+	1. 将sub合入master;
+	2. 从后往前比较，并从后往前排序（下标为m+n-k），数据移动次数最少，为O(m+n);
+	3. 空间复杂度为O(1);
+ */
 
-func merge(A []int, m int, B []int, n int)  {
+func Merge(master []int, m int, sub []int, n int)  {
 	i, j, k := m-1, n-1, 1
 	for i >= 0 && j >= 0 {
-		if A[i] > B[j] {
-			A[m+n-k] = A[i]
+		if master[i] > sub[j] {
+			master[m+n-k] = master[i]
 			i--
 		} else {
-			A[m+n-k] = B[j]
+			master[m+n-k] = sub[j]
 			j--
 		}
 		k++
 	}
 
-	if j >= 0 {
-		for i := 0; i <= j; i++ {
-			A[i] = B[i]
-		}
+	for j >= 0 {
+		master[m+n-k] = sub[j]
+		j--
 	}
 }

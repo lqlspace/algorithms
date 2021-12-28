@@ -1,7 +1,8 @@
 package array
 
 /*
-二维数组中的查找：每一行都按照从左到右递增的顺序排序，每一列都按照从上到下的顺序排序
+1. 每一行都按照从左到右递增的顺序排序，每一列都按照从上到下的顺序排序
+2. 比较的次数最大为O(rows+numbers)
  */
 
 func Find(matrix [][]int, rows, columns, number int) bool {
@@ -9,13 +10,10 @@ func Find(matrix [][]int, rows, columns, number int) bool {
 		return false
 	}
 
-	var found bool
-	row := 0
-	column := columns - 1
+	row, column := 0, columns-1
 	for row < rows && column >= 0 {
 		if matrix[row][column] == number {
-			found = true
-			break
+			return true
 		} else if matrix[row][column] > number {
 			column--
 		} else {
@@ -23,5 +21,5 @@ func Find(matrix [][]int, rows, columns, number int) bool {
 		}
 	}
 
-	return found
+	return false
 }

@@ -4,6 +4,18 @@ import (
 	"testing"
 )
 
+func TestMerge(t *testing.T) {
+	master := make([]int, 8)
+	master[0] = 1
+	master[1] = 3
+	master[2] = 5
+	sub := []int{2, 4, 6, 7, 8}
+
+	Merge(master, 3, sub, 5)
+
+	t.Log(master)
+}
+
 func TestFind(t *testing.T) {
 	arr := [][]int{
 		{1, 2, 8, 9},
@@ -19,8 +31,3 @@ func TestFind(t *testing.T) {
 	t.Log(found)
 }
 
-func TestFind2(t *testing.T) {
-	str  := "1234"
-
-	t.Log(len(str))
-}
