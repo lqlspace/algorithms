@@ -1,12 +1,5 @@
 package simple
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
 // 数组法（时间复杂度O(N),空间复杂度O(N)）
 func isPalindrome1(head *ListNode) bool {
 	if head == nil {
@@ -16,6 +9,7 @@ func isPalindrome1(head *ListNode) bool {
 	cur := head
 	for cur != nil {
 		arr = append(arr, cur.Val)
+		cur = cur.Next
 	}
 
 	start, end := 0, len(arr)-1
@@ -56,8 +50,8 @@ func isPalindrome3(head *ListNode) bool {
 		return true
 	}
 
-	endOfFirstHalf := endOfFirstHalf(head)
-	startOfSecondHalf := reverseList(endOfFirstHalf.Next)
+	halfNode := getHalfNode(head)
+	startOfSecondHalf := reverseList(halfNode.Next)
 
 	second := startOfSecondHalf
 	for head != nil && second != nil {
@@ -69,15 +63,14 @@ func isPalindrome3(head *ListNode) bool {
 	}
 
 	// 恢复反转的链表
-	endOfFirstHalf.Next = reverseList(startOfSecondHalf)
+	halfNode.Next = reverseList(startOfSecondHalf)
 
 	return true
 }
 
-
-func endOfFirstHalf(head *ListNode) *ListNode {
+func getHalfNode(head *ListNode) *ListNode {
 	slow, fast := head, head
-	for fast.Next != nil && fast.Next.Next != nil {
+	for fast.Next != nil && fast.Next.Next != nil { // 分别代表奇数个和偶数个节点的最后一跳
 		fast = fast.Next.Next
 		slow = slow.Next
 	}

@@ -1,5 +1,8 @@
 package backtracking
 
+/*
+todo
+ */
 
 func Bag(i, cw, w int, items []int, maxWeight *int)  {
 	if cw == w || i == len(items) {
