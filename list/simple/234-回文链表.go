@@ -69,6 +69,10 @@ func isPalindrome3(head *ListNode) bool {
 }
 
 func getHalfNode(head *ListNode) *ListNode {
+	if head == nil {
+		return nil
+	}
+
 	slow, fast := head, head
 	for fast.Next != nil && fast.Next.Next != nil { // 分别代表奇数个和偶数个节点的最后一跳
 		fast = fast.Next.Next

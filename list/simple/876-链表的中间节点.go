@@ -1,13 +1,7 @@
 package simple
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-// 快慢指针法（时间复杂度O(N), 空间复杂度O(1)）
+
+// 快慢指针法（时间复杂度O(N), 空间复杂度O(1)），节点个数为偶数时，取得是中间两个节点中的后者
 func middleNodeMethod1(head *ListNode) *ListNode {
 	slow, fast := head, head
 	for fast != nil && fast.Next != nil {
