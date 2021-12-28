@@ -1,12 +1,5 @@
 package simple
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
 // 此方法是在无法获取到当前节点的pre节点时采用的，且无法删除最后一个节点。
 // （时间复杂度O(N), 空间复杂度O(N)）
 func deleteNode(node *ListNode) {
