@@ -1,12 +1,10 @@
 package medium
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
+/*
+给你两个链表表示两个非负数。各位数字是以倒序方式存在每个结点上的，
+每个结点保存一个数字。把这两个数相加并且以同样的形式返回一个表示和的链表。
  */
+
 // 时间复杂度O(MAX(M, N))， 空间复杂度O（MAX(M, N)）
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	sentinel := new(ListNode)
