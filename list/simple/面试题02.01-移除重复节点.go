@@ -30,10 +30,6 @@ func removeDuplicateNodesM1(head *ListNode) *ListNode {
 
 // 内外双循环（时间复杂度O(N^2)，空间复杂度O(1)）
 func removeDuplicateNodes(head *ListNode) *ListNode {
-	if head == nil {
-		return nil
-	}
-
 	outer := head
 	for outer != nil {
 		inner := outer
