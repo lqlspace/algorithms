@@ -73,8 +73,8 @@ func getHalfNode(head *ListNode) *ListNode {
 		return nil
 	}
 
-	slow, fast := head, head
-	for fast.Next != nil && fast.Next.Next != nil { // 分别代表奇数个和偶数个节点的最后一跳
+	slow, fast := head, head.Next
+	for fast != nil && fast.Next != nil {
 		fast = fast.Next.Next
 		slow = slow.Next
 	}

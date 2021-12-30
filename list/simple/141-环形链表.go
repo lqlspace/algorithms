@@ -1,4 +1,4 @@
-package list
+package simple
 
 import (
 	"unsafe"
@@ -9,7 +9,7 @@ import (
 func hasCycleMethod1(head *ListNode) bool {
 	addrMap := make(map[unsafe.Pointer]struct{})
 	for head != nil {
-		if _, ok := addrMap[unsafe.Pointer(head)]; ok {
+		if _, ok := addrMap[unsafe.Pointer(head)]; ok 	{
 			return true
 		}
 		addrMap[unsafe.Pointer(head)] = struct{}{}
@@ -19,19 +19,18 @@ func hasCycleMethod1(head *ListNode) bool {
 	return false
 }
 
+
 // 快慢指针（时间复杂度O(N)，空间复杂度O(1)）
+// 在环里，跑的快的最终一定会追上跑的慢的
 func hasCycleMethod2(head *ListNode) bool {
 	if head == nil {
 		return false
 	}
+
 	slow, fast := head, head.Next
-	for fast != nil {
+	for fast != nil && fast.Next != nil {
 		if fast == slow {
 			return true
-		}
-
-		if fast.Next == nil {
-			return false
 		}
 		fast = fast.Next.Next
 		slow = slow.Next
