@@ -1,4 +1,4 @@
-package list
+package simple
 
 
 // 递归（时间复杂度O(n+m)，空间复杂度O(n+m):递归函数需要消耗
