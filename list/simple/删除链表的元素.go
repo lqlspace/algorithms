@@ -6,14 +6,12 @@ func deleteFirstNode(head *ListNode, val int) *ListNode {
 	sentinel.Next = head
 	pre := sentinel
 
-	for head != nil {
-		if head.Val == val {
-			pre.Next = head.Next
-			head.Next = nil
+	for pre.Next != nil {
+		if pre.Next.Val == val {
+			pre.Next = pre.Next.Next
 			break
 		}
-		pre = head
-		head = head.Next
+		pre = pre.Next
 	}
 
 	return sentinel.Next
@@ -25,14 +23,12 @@ func deleteAllNode(head *ListNode, val int) *ListNode {
 	sentinel.Next = head
 	pre := sentinel
 
-	for head != nil {
-		if head.Val == val {
-			pre.Next = head.Next
-			head = pre.Next
+	for pre.Next != nil {
+		if pre.Next.Val == val {
+			pre.Next = pre.Next.Next
 			continue
 		}
-		pre = head
-		head = head.Next
+		pre = pre.Next
 	}
 
 	return sentinel.Next

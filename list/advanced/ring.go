@@ -1,7 +1,7 @@
 /*
 *环（循环链表）
 */
-package list
+package advanced
 
 type Ring struct {
 	Value interface{}

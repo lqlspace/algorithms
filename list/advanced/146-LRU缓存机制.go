@@ -1,4 +1,4 @@
-package list
+package advanced
 
 type LRUCache struct {
 	size int

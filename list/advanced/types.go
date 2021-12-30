@@ -1,4 +1,4 @@
-package list
+package advanced
 
 
 type ListNode struct {
