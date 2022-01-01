@@ -1,4 +1,4 @@
-package medium
+package simple
 
 // 递归法，时间复杂度O(N),空间复杂度O(N)
 func swapPairs(head *ListNode) *ListNode {
