@@ -1,16 +1,7 @@
-package medium
-
-
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
+package simple
 
 // 递归
-func rotateRight1(head *ListNode, k int) *ListNode {
+func RotateRight1(head *ListNode, k int) *ListNode {
 	if head == nil {
 		return nil
 	}
@@ -53,40 +44,37 @@ func rotateRight1(head *ListNode, k int) *ListNode {
 
 
 
-// 迭代
-func rotateRight2(head *ListNode, k int) *ListNode {
-	if head == nil {
-		return nil
+// 双指针迭代
+func RotateRight2(head *ListNode, k int) *ListNode {
+	sentinel := new(ListNode)
+	sentinel.Next = head
+	former, latter:= sentinel, sentinel
+
+	for i := 0; i < k; i++ {
+		if former == nil {
+			return sentinel.Next
+		}
+		former = former.Next
 	}
 
-	num, cur :=1, head
-	for cur.Next != nil {
-		num++
-		cur = cur.Next
-	}
-	last := cur
-
-	step := k % num
-	pos := num - (step+1)
-	sentinel := &ListNode{Next:head}
-	cur = sentinel.Next
-	for i := 0; i < pos; i++ {
-		cur = cur.Next
-	}
-	if cur.Next == nil {
+	if former.Next == nil {
 		return sentinel.Next
 	}
 
-	node := cur.Next
-	cur.Next = nil
-	last.Next = sentinel.Next
-	sentinel.Next = node
+	for former.Next != nil {
+		former = former.Next
+		latter = latter.Next
+	}
+
+	former.Next = sentinel.Next
+	sentinel.Next = latter.Next
+	latter.Next = nil
 
 	return sentinel.Next
 }
 
 // 首尾相连成环
-func rotateRight3(head *ListNode, k int) *ListNode {
+func RotateRight3(head *ListNode, k int) *ListNode {
 	if head == nil {
 		return nil
 	}
