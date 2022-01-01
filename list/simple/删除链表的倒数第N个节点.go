@@ -1,12 +1,6 @@
-package medium
+package simple
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
+
 // 两次遍历(时间复杂度O(N)，空间复杂度O(1))
 func removeNthFromEnd1(head *ListNode, n int) *ListNode {
 	sentinel := new(ListNode)
@@ -51,19 +45,21 @@ func removeNthFromEnd2(head *ListNode, n int) *ListNode {
 func removeNthFromEnd3(head *ListNode, n int) *ListNode {
 	sentinel := new(ListNode)
 	sentinel.Next = head
-	slow, fast := sentinel, sentinel
+	former, latter := sentinel, sentinel
+
 	for i := 0; i < n+1; i++ {
-		if fast == nil {
-			return nil
+		if former == nil {
+			return head
 		}
-		fast = fast.Next
+		former = former.Next
 	}
 
-	for fast != nil {
-		fast = fast.Next
-		slow = slow.Next
+	for former != nil {
+		former = former.Next
+		latter = latter.Next
 	}
-	slow.Next = slow.Next.Next
+
+	latter.Next = latter.Next.Next
 
 	return sentinel.Next
 }

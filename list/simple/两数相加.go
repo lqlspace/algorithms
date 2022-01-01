@@ -1,4 +1,4 @@
-package medium
+package simple
 
 /*
 给你两个链表表示两个非负数。各位数字是以倒序方式存在每个结点上的，

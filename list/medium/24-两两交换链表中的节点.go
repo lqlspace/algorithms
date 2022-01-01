@@ -1,13 +1,5 @@
 package medium
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-
 // 递归法，时间复杂度O(N),空间复杂度O(N)
 func swapPairs(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
@@ -40,5 +32,3 @@ func swapPairs2(head *ListNode) *ListNode {
 
 	return sentinel.Next
 }
-
-
