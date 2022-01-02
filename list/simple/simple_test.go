@@ -63,3 +63,8 @@ func TestRotateRight3(t *testing.T)  {
 	TraverseList(head)
 }
 
+func TestPartition(t *testing.T) {
+	head := CreateList([]int{3, 4, 9,  11, 2, 5})
+	head = Partition(head, 1)
+	TraverseList(head)
+}
