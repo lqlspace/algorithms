@@ -68,3 +68,17 @@ func TestPartition(t *testing.T) {
 	head = Partition(head, 1)
 	TraverseList(head)
 }
+
+func TestInsertSortList(t *testing.T) {
+	head := CreateList([]int{1, 4, 3, 2, 9, 7})
+	head = InsertSortList(head)
+	TraverseList(head)
+
+	head = CreateList([]int{1, 2, 3, 3, 4})
+	head = InsertSortList(head)
+	TraverseList(head)
+
+	head = CreateList([]int{3, 2, 0, 0})
+	head = InsertSortList(head)
+	TraverseList(head)
+}
