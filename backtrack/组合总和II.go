@@ -22,9 +22,6 @@ func CombinationSumII(candidates []int, target int) [][]int {
 		}
 
 		for i := index; i < len(candidates); i++ {
-			if i-1 >= index && candidates[i] == candidates[i-1] {
-				continue
-			}
 			if target - candidates[i] < 0 {
 				return
 			}
