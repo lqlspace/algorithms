@@ -1,72 +1,98 @@
 package heap
 
 import (
+	"errors"
 	"fmt"
 )
 
 type Heap struct {
-	a []int
+	arr []int
 	cap int
-	cnt int
+	count int
 }
 
 func NewHeap(capacity int) *Heap {
 	return &Heap{
-		a:   make([]int, capacity+1),
-		cap: capacity,
-		cnt: 0,
+		arr:   make([]int, capacity+1),
+		cap:   capacity,
+		count: 0,
 	}
 }
 
-func (h *Heap) insert(data int) {
-	if h.cnt == h.cap {
-		return
+func NewHeapFromArr(arr []int) *Heap {
+	h := NewHeap(len(arr))
+	for _, item := range arr {
+		h.insert(item)
 	}
 
-	h.cnt++
-	h.a[h.cnt] = data
+	return h
+}
 
-	i := h.cnt
-	parent := i / 2
-	for parent > 0 && h.a[parent] < h.a[i] {
-		h.a[parent], h.a[i] = h.a[i], h.a[parent]
+func (h *Heap) Sort() []int {
+	if h.count == 0 {
+		return []int{}
+	}
+
+	for k := h.count; k >=1; k-- {
+		h.removeMax()
+	}
+
+	return h.arr[1:]
+}
+
+
+func (h *Heap) insert(val int) error {
+	if h.count == h.cap {
+		return errors.New("heap full")
+	}
+
+	h.count++
+	h.arr[h.count] = val
+
+	i := h.count
+	for parent := i/2; parent >= 1 && h.arr[parent] < h.arr[i]; parent = i / 2 {
+		h.arr[parent], h.arr[i] = h.arr[i], h.arr[parent]
 		i = parent
-		parent = i / 2
 	}
+
+	return nil
 }
 
-func (h *Heap) removeMax() {
-	if h.cnt == 0 {
-		return
+func (h *Heap) removeMax() error {
+	if h.count == 0 {
+		return errors.New("heap empty")
 	}
 
-	h.a[1], h.a[h.cnt] = h.a[h.cnt], h.a[1]
-	h.cnt--
-
+	h.arr[1], h.arr[h.count] = h.arr[h.count], h.arr[1]
+	h.count--
 	h.heapifyUpToDown()
+
+	return nil
 }
 
 func (h *Heap) heapifyUpToDown() {
-	for i := 1; i <= h.cnt/2; {
+	for i := 1; i <= h.count / 2; i++ {
 		maxIdx := i
-		if h.a[maxIdx] < h.a[i*2] {
+		if h.arr[maxIdx] < h.arr[i*2] {
 			maxIdx = i * 2
 		}
 
-		if i*2+1 <= h.cnt && h.a[maxIdx] < h.a[i*2+1] {
+		if i * 2 + 1 <= h.count && h.arr[maxIdx] < h.arr[i*2+1] {
 			maxIdx = i * 2 + 1
 		}
+
 		if maxIdx == i {
 			break
 		}
-		h.a[i], h.a[maxIdx] = h.a[maxIdx], h.a[i]
-		i = maxIdx
+
+		h.arr[i], h.arr[maxIdx]  = h.arr[maxIdx], h.arr[i]
+		i =  maxIdx
 	}
 }
 
 func (h *Heap) PrintHeap() {
-	for i := 1; i <= h.cnt; i++ {
-		fmt.Printf("%d  ", h.a[i])
+	for i := 1; i <= h.count; i++ {
+		fmt.Printf("%d ", h.arr[i])
 	}
 	println()
 }

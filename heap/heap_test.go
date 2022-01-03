@@ -14,6 +14,13 @@ func TestSort(t *testing.T) {
 	}
 }
 
+func TestHeap_Sort(t *testing.T) {
+	heap := NewHeapFromArr([]int{3, 2, 1, 4, 5})
+	arr := heap.Sort()
+
+	fmt.Println(arr)
+}
+
 func TestNewHeap(t *testing.T) {
 	heap := NewHeap(4)
 
