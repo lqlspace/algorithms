@@ -30,19 +30,16 @@ func CombinationSum(candidates []int, target int) [][]int {
 			return
 		}
 
-		if index == len(candidates) {
-			return
-		}
-
 		if target - candidates[index] < 0 {
 			return
 		}
 
-		temp = append(temp, candidates[index])
-		dfs(target - candidates[index], index)
-		temp = temp[:len(temp)-1]
-
-		dfs(target, index+1)
+		// for循环代表同一阶段的不同选择，backtrack函数代表下一阶段，而backtrack的第二个参数决定了下一个阶段的选择范围；
+		for i := index; i < len(candidates); i++ {
+			temp = append(temp, candidates[i])
+			dfs(target - candidates[i], i)
+			temp = temp[:len(temp)-1]
+		}
 	}
 
 	dfs(target, 0)

@@ -21,11 +21,16 @@ func CombinationSumII(candidates []int, target int) [][]int {
 			return
 		}
 
-		for i := index; i < len(candidates); i++ {
-			if target - candidates[i] < 0 {
-				return
-			}
+		if index == len(candidates) {
+			return
+		}
 
+		if target - candidates[index] < 0 {
+			return
+		}
+
+		// for循环代表同一阶段的不同选择，backtrack函数代表下一阶段，而backtrack的第二个参数决定了下一个阶段的选择范围；
+		for i := index; i < len(candidates); i++ {
 			path = append(path, candidates[i])
 			backtrack(target-candidates[i], i+1)
 			path = path[:len(path)-1]
