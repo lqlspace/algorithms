@@ -1,4 +1,4 @@
-package backtracking
+package backtrack
 
 var res = make([]int, 8)
 var cnt = 0
