@@ -49,11 +49,7 @@ func (h *Heap) insert(val int) error {
 	h.count++
 	h.arr[h.count] = val
 
-	i := h.count
-	for parent := i/2; parent >= 1 && h.arr[parent] < h.arr[i]; parent = i / 2 {
-		h.arr[parent], h.arr[i] = h.arr[i], h.arr[parent]
-		i = parent
-	}
+	h.heapifyDownToUp(h.count)
 
 	return nil
 }
@@ -65,13 +61,29 @@ func (h *Heap) removeMax() error {
 
 	h.arr[1], h.arr[h.count] = h.arr[h.count], h.arr[1]
 	h.count--
-	h.heapifyUpToDown()
+	h.heapifyUpToDown(1)
 
 	return nil
 }
 
-func (h *Heap) heapifyUpToDown() {
-	for i := 1; i <= h.count / 2; i++ {
+
+func (h *Heap) buildHeap() {
+	for i := h.count/2; i >= 1; i-- {
+		h.heapifyUpToDown(i)
+	}
+}
+
+// idx位置的值破坏了堆，重新构建
+func (h *Heap) heapifyDownToUp(idx int)  {
+	for i, parent := idx, idx/2; parent >= 1 && h.arr[parent] < h.arr[i]; parent = i / 2 {
+		h.arr[parent], h.arr[i] = h.arr[i], h.arr[parent]
+		i = parent
+	}
+}
+
+//
+func (h *Heap) heapifyUpToDown(top int) {
+	for i := top; i <= h.count / 2; {
 		maxIdx := i
 		if h.arr[maxIdx] < h.arr[i*2] {
 			maxIdx = i * 2
