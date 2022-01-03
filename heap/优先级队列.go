@@ -1,4 +1,4 @@
-package queue
+package heap
 
 // 队列节点
 type Node struct {
