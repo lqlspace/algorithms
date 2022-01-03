@@ -39,3 +39,13 @@ func TestCombinationSum(t *testing.T) {
 	}
 }
 
+func TestCombinationSumII(t *testing.T) {
+	candidates := []int{2, 3, 5}
+	target := 8
+
+	res := CombinationSumII(candidates,  target)
+	for _, item := range res {
+		t.Log(item)
+	}
+}
+

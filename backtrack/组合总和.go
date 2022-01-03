@@ -34,6 +34,10 @@ func CombinationSum(candidates []int, target int) [][]int {
 			return
 		}
 
+		if index > 0 && candidates[index] == candidates[index-1] {
+			return
+		}
+
 		if target - candidates[index] < 0 {
 			return
 		}
