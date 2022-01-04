@@ -2,6 +2,8 @@ package tree
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestCreateBTree(t *testing.T) {
@@ -40,4 +42,19 @@ func TestBTree_LevelSearch(t *testing.T) {
 	println()
 	bt.LevelTraverse()
 	println()
+}
+
+func TestRebuildBinaryTree(t *testing.T) {
+	preorder := []int{1, 2, 4, 7, 3, 5, 6, 8}
+	inorder  := []int{4, 7, 2, 1, 5, 3, 8, 6}
+
+	tree := RebuildBinaryTree(preorder, inorder)
+
+	pre := printPreOrder(tree)
+	assert.Equal(t, preorder, pre)
+	t.Log(pre)
+
+	in := printInOrder(tree)
+	assert.Equal(t, inorder, in)
+	t.Log(in)
 }
