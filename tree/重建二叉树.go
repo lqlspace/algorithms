@@ -5,21 +5,22 @@ package tree
 例如：输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建如图所示的二叉树并输出它的头节点。
  */
 
-
 func RebuildBinaryTree(preorder, inorder []int) *BinaryTreeNode {
 	if len(preorder) == 0 || len(inorder) == 0 {
 		return nil
 	}
 
-	return createTreeRecur(preorder, 0, len(preorder)-1, inorder, 0, len(inorder)-1)
+	return rebuildTreeRecur(preorder, 0, len(preorder)-1, inorder, 0,  len(inorder)-1)
 }
 
-func createTreeRecur(preorder []int, preStart, preEnd int, inorder []int, inStart, inEnd int) *BinaryTreeNode {
+func rebuildTreeRecur(preorder []int, preStart, preEnd int, inorder []int, inStart, inEnd int) *BinaryTreeNode {
 	if preStart > preEnd || inStart > inEnd {
 		return nil
 	}
 
-	root := &BinaryTreeNode{Value:preorder[preStart]}
+	root := new(BinaryTreeNode)
+	root.Value = preorder[preStart]
+
 	var rootIdx int
 	for i := range inorder {
 		if inorder[i] == root.Value {
@@ -29,40 +30,34 @@ func createTreeRecur(preorder []int, preStart, preEnd int, inorder []int, inStar
 	}
 
 	leftCount := rootIdx - inStart
-	root.Left = createTreeRecur(preorder, preStart+1, preStart+leftCount, inorder, inStart, rootIdx-1)
-	root.Right = createTreeRecur(preorder, preStart+leftCount+1, preEnd, inorder, rootIdx+1, inEnd)
+	root.Left = rebuildTreeRecur(preorder, preStart+1, preStart+leftCount, inorder, inStart, rootIdx-1)
+	root.Right = rebuildTreeRecur(preorder, preStart+1+leftCount, preEnd, inorder, rootIdx+1, inEnd)
 
-	return root
+	return  root
 }
 
-
-// 前序遍历
-func printPreOrder(root *BinaryTreeNode) []int {
-	if root == nil {
+func printPreOrder(tree *BinaryTreeNode) []int {
+	if tree == nil {
 		return nil
 	}
-	order := append([]int(nil), root.Value)
-	if root.Left != nil {
-		order = append(order, printPreOrder(root.Left)...)
-	}
-	if root.Right != nil {
-		order = append(order, printPreOrder(root.Right)...)
-	}
-	return order
-}
 
-// 中序遍历
-func printInOrder(root *BinaryTreeNode) []int {
-	if root == nil {
-		return nil
-	}
 	var res []int
-	if root.Left != nil {
-		res = append(res, printInOrder(root.Left)...)
+	res = append(res, tree.Value)
+	res = append(res, printPreOrder(tree.Left)...)
+	res = append(res, printPreOrder(tree.Right)...)
+
+	return res
+}
+
+func printInOrder(tree *BinaryTreeNode) []int {
+	if tree == nil {
+		return  nil
 	}
-	res = append(res, root.Value)
-	if root.Right != nil {
-		res = append(res, printInOrder(root.Right)...)
-	}
+
+	var res []int
+	res = append(res, printInOrder(tree.Left)...)
+	res = append(res, tree.Value)
+	res = append(res, printInOrder(tree.Right)...)
+
 	return res
 }

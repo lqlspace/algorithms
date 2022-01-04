@@ -57,4 +57,10 @@ func TestRebuildBinaryTree(t *testing.T) {
 	in := printInOrder(tree)
 	assert.Equal(t, inorder, in)
 	t.Log(in)
+
+	preorder = []int{1, 2, 3, 4}
+	inorder  = []int{3, 4, 2, 1}
+	tree = RebuildBinaryTree(preorder, inorder)
+	assert.Equal(t, preorder, printPreOrder(tree))
+	assert.Equal(t, inorder, printInOrder(tree))
 }
