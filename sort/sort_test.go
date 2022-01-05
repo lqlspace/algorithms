@@ -60,3 +60,11 @@ func TestMergeSort(t *testing.T) {
 	MergeSort(arr)
 	t.Log(arr)
 }
+
+func TestQuickStart(t *testing.T) {
+	arr := random.RandomIntSlice(10, 1, 10)
+	t.Log(arr)
+
+	QuickSort(arr)
+	t.Log(arr)
+}
