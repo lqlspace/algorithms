@@ -36,3 +36,8 @@ func Test_maxDepth(t *testing.T) {
 	t.Log(maxDepth(bt))
 	t.Log(maxDepth2(bt))
 }
+
+func Test_sortedArrayToBST(t *testing.T)  {
+	arr := []int{-10, -3, 0, 5, 9}
+	t.Log(sortedArrayToBST(arr))
+}
