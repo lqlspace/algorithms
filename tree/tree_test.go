@@ -29,5 +29,10 @@ func Test_isSymmetric(t *testing.T) {
 
 	bt = CreateBTree([]int{5, 4, 1, null, 1, null, 4, 2, null, 2, null})
 	t.Log(isSymmetric(bt))
+}
 
+func Test_maxDepth(t *testing.T) {
+	bt := CreateBTree([]int{3, 9, 20, null, null, 15, 7})
+	t.Log(maxDepth(bt))
+	t.Log(maxDepth2(bt))
 }
