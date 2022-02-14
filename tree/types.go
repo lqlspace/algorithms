@@ -1,8 +1,10 @@
 package tree
 
-type BTree struct {
-	root *TreeNode
-}
+import (
+	"math"
+)
+
+var null = math.MinInt64
 
 type TreeNode struct {
 	Val int
