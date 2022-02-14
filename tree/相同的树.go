@@ -6,7 +6,7 @@ import (
 )
 
 
-// 1. 采用分层遍历，注意空节点不能省略
+// 1. 广度优先搜索，注意空节点不能省略
 func isSameTree1(p *TreeNode, q *TreeNode) bool {
 	left := levelTraverse(p)
 	right := levelTraverse(q)
@@ -14,7 +14,7 @@ func isSameTree1(p *TreeNode, q *TreeNode) bool {
 	return reflect.DeepEqual(left, right)
 }
 
-// 空间复杂度O(N)，时间复杂度O(N)
+// 空间复杂度O(min(m,n))，时间复杂度O(min(m,n))
 func levelTraverse(root *TreeNode) []int {
 	var queue []*TreeNode
 	var vals []int
@@ -36,8 +36,8 @@ func levelTraverse(root *TreeNode) []int {
 	return  vals
 }
 
-// 2 深度遍历
-// 时间复杂度O(N), 空间复杂度O(1)
+// 2 深度优先搜索
+// 时间复杂度O(min(m,n)), 空间复杂度O(min(m,n))
 func isSameTree2(p *TreeNode, q *TreeNode) bool {
 	if p == nil && q == nil {
 		return true
@@ -53,5 +53,3 @@ func isSameTree2(p *TreeNode, q *TreeNode) bool {
 
 	return isSameTree2(p.Left, q.Left) && isSameTree2(p.Right, q.Right)
 }
-
-
