@@ -1,19 +1,13 @@
 package tree
 
 type BTree struct {
-	root *Node
+	root *TreeNode
+}
+
+type TreeNode struct {
+	Val int
+	Left *TreeNode
+	Right *TreeNode
 }
 
 
-
-type Node struct {
-	data interface{}
-	left *Node
-	right *Node
-}
-
-type BinaryTreeNode struct {
-	Value int
-	Left *BinaryTreeNode
-	Right *BinaryTreeNode
-}

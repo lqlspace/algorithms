@@ -5,72 +5,72 @@ func CreateBTree() *BTree {
 	return &BTree{}
 }
 
-func (bt *BTree) Insert(parent,  data interface{}, val int) {
+func (bt *BTree) Insert(parent interface{},  data , val int) {
 	if parent == nil && bt.root == nil {
-		bt.root = &Node{data: data}
+		bt.root = &TreeNode{Val: data}
 		return
 	}
 
-	if node := bt.DeepSearch(bt.root, parent); node !=  nil {
+	if treeNode := bt.DeepSearch(bt.root, parent); treeNode !=  nil {
 		if val == 0 {
-			node.left  = &Node{data:data}
+			treeNode.Left = &TreeNode{Val: data}
 		} else if val == 1 {
-			node.right = &Node{data: data}
+			treeNode.Right = &TreeNode{Val: data}
 		}
 	}
 }
 
 
-func (bt *BTree) DeepSearch(node *Node, data interface{}) *Node {
-	if node == nil {
+func (bt *BTree) DeepSearch(TreeNode *TreeNode, data interface{}) *TreeNode {
+	if TreeNode == nil {
 		return nil
 	}
 
-	if node.data  == data {
-		return node
+	if TreeNode.Val  == data {
+		return TreeNode
 	}
 
-	if n := bt.DeepSearch(node.left, data); n != nil {
+	if n := bt.DeepSearch(TreeNode.Left, data); n != nil {
 		return n
 	}
 
-	return bt.DeepSearch(node.right, data)
+	return bt.DeepSearch(TreeNode.Right, data)
 }
 
-func (bt *BTree) InsertByLevelSearch(parent, data interface{}, val int) {
-	if bt.root == nil {
-		bt.root = &Node{data: data}
-		return
-	}
-
-	if parentNode := bt.LevelSearch(parent); parentNode != nil {
-		if val == 0 {
-			parentNode.left = &Node{data:data}
-		} else if val == 1 {
-			parentNode.right = &Node{data: data}
-		}
-	}
-
-}
-
-func (bt *BTree) LevelSearch(data interface{}) *Node {
-	var queue []*Node
-	queue =  append(queue, bt.root)
-
-	for len(queue) > 0 {
-		front := queue[0]
-		queue = queue[1:]
-
-		if front.data == data {
-			return front
-		}
-		if front.left != nil {
-			queue = append(queue, front.left)
-		}
-		if front.right != nil {
-			queue = append(queue, front.right)
-		}
-	}
-
-	return nil
-}
+//func (bt *BTree) InsertByLevelSearch(parent, data interface{}, val int) {
+//	if bt.root == nil {
+//		bt.root = &TreeNode{data: data}
+//		return
+//	}
+//
+//	if parentTreeNode := bt.LevelSearch(parent); parentTreeNode != nil {
+//		if val == 0 {
+//			parentTreeNode.left = &TreeNode{data:data}
+//		} else if val == 1 {
+//			parentTreeNode.right = &TreeNode{data: data}
+//		}
+//	}
+//
+//}
+//
+//func (bt *BTree) LevelSearch(data interface{}) *TreeNode {
+//	var queue []*TreeNode
+//	queue =  append(queue, bt.root)
+//
+//	for len(queue) > 0 {
+//		front := queue[0]
+//		queue = queue[1:]
+//
+//		if front.data == data {
+//			return front
+//		}
+//		if front.left != nil {
+//			queue = append(queue, front.left)
+//		}
+//		if front.right != nil {
+//			queue = append(queue, front.right)
+//		}
+//	}
+//
+//	return nil
+//}
