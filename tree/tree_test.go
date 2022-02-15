@@ -53,3 +53,17 @@ func Test_isBalanced(t *testing.T) {
 	t.Log(isBalanced(bt))
 	t.Log(isBalanced2(bt))
 }
+
+func Test_minDepth(t *testing.T)  {
+	arr := []int{1, 2, 3, null, null, 4, 5, 6}
+	bt := CreateBTree(arr)
+
+	t.Log(minDepth(bt))
+	t.Log(minDepth2(bt))
+
+	arr = []int{1, null, 3, 4, 5, 6}
+	bt = CreateBTree(arr)
+
+	t.Log(minDepth(bt))
+	t.Log(minDepth2(bt))
+}
