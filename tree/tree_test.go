@@ -72,16 +72,25 @@ func Test_hasPathSum(t *testing.T) {
 	arr := []int{5,4,8,11,null,13,4,7,2,null,null,null,1}
 	bt := CreateBTree(arr)
 	t.Log(hasPathSum(bt, 22))
+	t.Log(hasPathSum2(bt, 22))
 
 	arr = []int{1}
 	bt = CreateBTree(arr)
 	t.Log(hasPathSum(bt, 1))
+	t.Log(hasPathSum2(bt, 1))
 
 	arr = []int{1, 2, 3, 4, null, 1}
 	bt = CreateBTree(arr)
 	t.Log(hasPathSum(bt, 5))
+	t.Log(hasPathSum2(bt, 5))
 
 	arr = []int{}
 	bt = CreateBTree(arr)
 	t.Log(hasPathSum(bt, 0))
+	t.Log(hasPathSum2(bt, 0))
+
+	arr = []int{1, 2}
+	bt = CreateBTree(arr)
+	t.Log(hasPathSum(bt, 2))
+	t.Log(hasPathSum2(bt, 2))
 }
