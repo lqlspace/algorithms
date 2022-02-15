@@ -41,3 +41,13 @@ func Test_sortedArrayToBST(t *testing.T)  {
 	arr := []int{-10, -3, 0, 5, 9}
 	t.Log(sortedArrayToBST(arr))
 }
+
+func Test_isBalanced(t *testing.T) {
+	arr := []int{1, 2,  3, 4, 5}
+	bt := CreateBTree(arr)
+	t.Log(isBalanced(bt))
+
+	arr = []int{1, 2,  3, 4, 5, null, null, 6}
+	bt = CreateBTree(arr)
+	t.Log(isBalanced(bt))
+}
