@@ -94,3 +94,17 @@ func Test_hasPathSum(t *testing.T) {
 	t.Log(hasPathSum(bt, 2))
 	t.Log(hasPathSum2(bt, 2))
 }
+
+func Test_preorderTraversal(t *testing.T)  {
+	arr := []int{1, null, 2, 3}
+	bt := CreateBTree(arr)
+	t.Log(preorderTraversal(bt))
+
+	arr = []int{}
+	bt = CreateBTree(arr)
+	t.Log(preorderTraversal(bt))
+
+	arr = []int{1}
+	bt = CreateBTree(arr)
+	t.Log(preorderTraversal(bt))
+}
