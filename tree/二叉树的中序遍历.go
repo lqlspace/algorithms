@@ -1,16 +1,18 @@
 package tree
 
-func inorderTraversal(root *TreeNode) []int {
-	if root == nil {
-		return nil
+func inorderTraversal(root *TreeNode) (arr []int) {
+	var inorder func(root *TreeNode)
+	inorder = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+
+		inorder(root.Left)
+		arr =append(arr, root.Val)
+		inorder(root.Right)
 	}
 
-	var arr []int
-	left := inorderTraversal(root.Left)
-	arr = append(arr, left...)
-	arr = append(arr, root.Val)
-	right := inorderTraversal(root.Right)
-	arr = append(arr, right...)
+	inorder(root)
 
-	return arr
+	return
 }
