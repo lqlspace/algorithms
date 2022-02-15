@@ -1,19 +1,19 @@
 package tree
 
-func preorderTraversal(root *TreeNode) []int {
-	if root == nil {
-		return nil
+func preorderTraversal(root *TreeNode) (arr []int) {
+	var preorder func(root *TreeNode)
+	preorder = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+
+		arr = append(arr, root.Val)
+		preorder(root.Left)
+		preorder(root.Right)
 	}
 
-	arr := []int{root.Val}
-	if root.Left != nil {
-		left := preorderTraversal(root.Left)
-		arr = append(arr, left...)
-	}
-	if root.Right != nil {
-		right := preorderTraversal(root.Right)
-		arr = append(arr, right...)
-	}
+	preorder(root)
 
-	return arr
+	return
 }
+
