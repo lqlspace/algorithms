@@ -67,3 +67,21 @@ func Test_minDepth(t *testing.T)  {
 	t.Log(minDepth(bt))
 	t.Log(minDepth2(bt))
 }
+
+func Test_hasPathSum(t *testing.T) {
+	arr := []int{5,4,8,11,null,13,4,7,2,null,null,null,1}
+	bt := CreateBTree(arr)
+	t.Log(hasPathSum(bt, 22))
+
+	arr = []int{1}
+	bt = CreateBTree(arr)
+	t.Log(hasPathSum(bt, 1))
+
+	arr = []int{1, 2, 3, 4, null, 1}
+	bt = CreateBTree(arr)
+	t.Log(hasPathSum(bt, 5))
+
+	arr = []int{}
+	bt = CreateBTree(arr)
+	t.Log(hasPathSum(bt, 0))
+}
