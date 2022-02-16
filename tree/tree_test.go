@@ -108,3 +108,9 @@ func Test_preorderTraversal(t *testing.T)  {
 	bt = CreateBTree(arr)
 	t.Log(preorderTraversal(bt))
 }
+
+func Test_postorderTraversal(t *testing.T)  {
+	arr := []int{1, 2, 3}
+	bt := CreateBTree(arr)
+	t.Log(postorderTraversal(bt))
+}
