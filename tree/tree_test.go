@@ -2,7 +2,27 @@ package tree
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
+
+func TestCreateBTree(t *testing.T) {
+	arr := []int{1, 2, 3}
+	bt := CreateBTree(arr)
+	assert.Equal(t, arr, LeverTraversal(bt))
+
+	arr = []int{1, null, 2}
+	bt = CreateBTree(arr)
+	assert.Equal(t, arr, LeverTraversal(bt))
+
+	arr = []int{1, null, 2, null, 3}
+	bt = CreateBTree(arr)
+	assert.Equal(t, arr, LeverTraversal(bt))
+
+	arr = []int{1, 2, 3, null, null, 4, 5, null, 6}
+	bt = CreateBTree(arr)
+	assert.Equal(t, arr, LeverTraversal(bt))
+}
 
 func Test_inorderTraversal(t *testing.T) {
 	node := CreateBTree([]int{1, 2, 3, null, null, 4})

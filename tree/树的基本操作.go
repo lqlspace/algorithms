@@ -1,49 +1,31 @@
 package tree
 
 func CreateBTree(arr []int) *TreeNode {
-	if len(arr) == 0 || arr[0] ==  null {
+	if len(arr) == 0 {
 		return nil
 	}
 
-	m := map[int]*TreeNode{}
+	tree := &TreeNode{Val: arr[0]}
+	queue := []*TreeNode{tree}
+	curIdx := 1
 
-	root := &TreeNode{Val: arr[0]}
-	m[0] = root
-	cur := 0
-
-	n := len(arr)
-	for i := 1; i < n; i++ {
-		if arr[i] == null {
-			if i % 2 == 0 {
-				for cur <len(arr) {
-					cur++
-					if arr[cur] != null {
-						break
-					}
-				}
-			}
-			continue
+	for len(queue) > 0 {
+		node := queue[0]
+		queue = queue[1:]
+		if curIdx < len(arr) && arr[curIdx] != null {
+			node.Left = &TreeNode{Val: arr[curIdx]}
+			queue = append(queue, node.Left)
 		}
-
-		if i % 2 == 1 {
-			node := &TreeNode{Val: arr[i]}
-			m[cur].Left = node
-			m[i] = node
-		} else {
-			node := &TreeNode{Val: arr[i]}
-			m[cur].Right = node
-			m[i] = node
-			for cur <len(arr) {
-				cur++
-				if arr[cur] != null {
-					break
-				}
-			}
+		if curIdx + 1 < len(arr) && arr[curIdx+1] != null {
+			node.Right = &TreeNode{Val: arr[curIdx+1]}
+			queue = append(queue, node.Right)
 		}
+		curIdx += 2
 	}
 
-	return root
+	return tree
 }
+
 
 func LeverTraversal(root *TreeNode) []int {
 	if root == nil {
