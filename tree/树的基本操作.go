@@ -27,7 +27,7 @@ func CreateBTree(arr []int) *TreeNode {
 }
 
 
-func LeverTraversal(root *TreeNode) []int {
+func LevelTraversal(root *TreeNode) []int {
 	if root == nil {
 		return nil
 	}

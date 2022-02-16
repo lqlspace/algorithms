@@ -9,19 +9,19 @@ import (
 func TestCreateBTree(t *testing.T) {
 	arr := []int{1, 2, 3}
 	bt := CreateBTree(arr)
-	assert.Equal(t, arr, LeverTraversal(bt))
+	assert.Equal(t, arr, LevelTraversal(bt))
 
 	arr = []int{1, null, 2}
 	bt = CreateBTree(arr)
-	assert.Equal(t, arr, LeverTraversal(bt))
+	assert.Equal(t, arr, LevelTraversal(bt))
 
 	arr = []int{1, null, 2, null, 3}
 	bt = CreateBTree(arr)
-	assert.Equal(t, arr, LeverTraversal(bt))
+	assert.Equal(t, arr, LevelTraversal(bt))
 
 	arr = []int{1, 2, 3, null, null, 4, 5, null, 6}
 	bt = CreateBTree(arr)
-	assert.Equal(t, arr, LeverTraversal(bt))
+	assert.Equal(t, arr, LevelTraversal(bt))
 }
 
 func Test_inorderTraversal(t *testing.T) {
@@ -138,24 +138,24 @@ func Test_postorderTraversal(t *testing.T)  {
 func Test_invertTree(t *testing.T) {
 	arr := []int{4, 2, 7, 1, 3, 6, 9}
 	bt := CreateBTree(arr)
-	t.Log(LeverTraversal(invertTree(bt)))
+	t.Log(LevelTraversal(invertTree(bt)))
 
 	arr = []int{1, 2, 3}
 	bt = CreateBTree(arr)
-	t.Log(LeverTraversal(invertTree(bt)))
+	t.Log(LevelTraversal(invertTree(bt)))
 }
 
 func TestLeverSearch(t *testing.T) {
 	arr := []int{1, null, 2}
 	bt := CreateBTree(arr)
-	t.Log(LeverTraversal(bt))
+	t.Log(LevelTraversal(bt))
 
 	arr = []int{1, 2, 3, null,  5}
 	bt = CreateBTree(arr)
-	t.Log(LeverTraversal(bt))
+	t.Log(LevelTraversal(bt))
 
 	arr = []int{1, 2, 3, null, null, 4, 5, null, null, null, 6}
 	bt = CreateBTree(arr)
-	t.Log(LeverTraversal(bt))
+	t.Log(LevelTraversal(bt))
 
 }
