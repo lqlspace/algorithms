@@ -8,14 +8,14 @@ import (
 
 // 1. 广度优先搜索，注意空节点不能省略
 func isSameTree1(p *TreeNode, q *TreeNode) bool {
-	left := levelTraverse(p)
-	right := levelTraverse(q)
+	left := bfsTraverse(p)
+	right := bfsTraverse(q)
 
 	return reflect.DeepEqual(left, right)
 }
 
 // 空间复杂度O(min(m,n))，时间复杂度O(min(m,n))
-func levelTraverse(root *TreeNode) []int {
+func bfsTraverse(root *TreeNode) []int {
 	var queue []*TreeNode
 	var vals []int
 	queue = append(queue, root)

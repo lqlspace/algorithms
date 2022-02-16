@@ -44,3 +44,34 @@ func CreateBTree(arr []int) *TreeNode {
 
 	return root
 }
+
+func LeverTraversal(root *TreeNode) []int {
+	if root == nil {
+		return nil
+	}
+
+	var arr []int
+	queue := []*TreeNode{root}
+	for len(queue) > 0 {
+		node := queue[0]
+		queue = queue[1:]
+
+		if node == nil {
+			arr = append(arr, null)
+			continue
+		}
+
+		arr = append(arr, node.Val)
+		queue = append(queue, node.Left, node.Right)
+	}
+
+	num := 0
+	for i := len(arr)-1; i >= 0; i-- {
+		if arr[i] != null {
+			break
+		}
+		num++
+	}
+
+	return  arr[:len(arr)-num]
+}

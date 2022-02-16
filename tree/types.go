@@ -1,10 +1,6 @@
 package tree
 
-import (
-	"math"
-)
-
-var null = math.MinInt64
+var null = -9999
 
 type TreeNode struct {
 	Val int
