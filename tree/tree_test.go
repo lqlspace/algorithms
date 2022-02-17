@@ -193,3 +193,13 @@ func Test_findMode(t *testing.T)  {
 	bt = CreateBTree(arr)
 	t.Log(findMode(bt))
 }
+
+func Test_getMinimumDifference(t *testing.T) {
+	arr := []int{4,2,6,1,3}
+	bt := CreateBTree(arr)
+	t.Log(getMinimumDifference(bt))
+
+	arr = []int{4,3,6,1,3}
+	bt = CreateBTree(arr)
+	t.Log(getMinimumDifference(bt))
+}
