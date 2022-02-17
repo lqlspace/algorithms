@@ -203,3 +203,9 @@ func Test_getMinimumDifference(t *testing.T) {
 	bt = CreateBTree(arr)
 	t.Log(getMinimumDifference(bt))
 }
+
+func Test_diameterOfBinaryTree(t *testing.T) {
+	arr := []int{1, 2, 3, 4, 5}
+	bt := CreateBTree(arr)
+	t.Log(diameterOfBinaryTree(bt))
+}
