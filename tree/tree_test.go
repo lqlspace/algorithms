@@ -209,3 +209,13 @@ func Test_diameterOfBinaryTree(t *testing.T) {
 	bt := CreateBTree(arr)
 	t.Log(diameterOfBinaryTree(bt))
 }
+
+func Test_findTilt(t *testing.T) {
+	arr := []int{1,2,3}
+	bt := CreateBTree(arr)
+	t.Log(findTilt(bt))
+
+	arr = []int{4,2,9,3,5,null,7}
+	bt = CreateBTree(arr)
+	t.Log(findTilt(bt))
+}
