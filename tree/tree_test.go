@@ -183,3 +183,13 @@ func Test_sumOfLeftLeaves(t *testing.T) {
 	t.Log(sumOfLeftLeaves(bt))
 	t.Log(sumOfLeftLeaves2(bt))
 }
+
+func Test_findMode(t *testing.T)  {
+	arr := []int{1,null,2,2}
+	bt := CreateBTree(arr)
+	t.Log(findMode(bt))
+
+	arr = []int{0}
+	bt = CreateBTree(arr)
+	t.Log(findMode(bt))
+}
