@@ -159,3 +159,15 @@ func TestLeverSearch(t *testing.T) {
 	t.Log(LevelTraversal(bt))
 
 }
+
+func Test_binaryTreePaths(t *testing.T) {
+	arr := []int{1, 2, 3, null, null, 4}
+	bt :=  CreateBTree(arr)
+	t.Log(binaryTreePaths(bt))
+	t.Log(binaryTreePaths2(bt))
+
+	arr = []int{1, 2, 3, 7, null, 4, 5, null, null, null, null, 6}
+	bt =  CreateBTree(arr)
+	t.Log(binaryTreePaths(bt))
+	t.Log(binaryTreePaths2(bt))
+}
