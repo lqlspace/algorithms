@@ -171,3 +171,15 @@ func Test_binaryTreePaths(t *testing.T) {
 	t.Log(binaryTreePaths(bt))
 	t.Log(binaryTreePaths2(bt))
 }
+
+func Test_sumOfLeftLeaves(t *testing.T) {
+	arr := []int{3,9,20,null,null,15,7}
+	bt := CreateBTree(arr)
+	t.Log(sumOfLeftLeaves(bt))
+	t.Log(sumOfLeftLeaves2(bt))
+
+	arr = []int{1, 2, 3, null, null, 4}
+	bt = CreateBTree(arr)
+	t.Log(sumOfLeftLeaves(bt))
+	t.Log(sumOfLeftLeaves2(bt))
+}
