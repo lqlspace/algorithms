@@ -28,3 +28,20 @@ func getPath(root, target *TreeNode) (path []*TreeNode) {
 
 	return
 }
+
+// 方法2：时间复杂度O(N)，空间复杂度O(1)
+func lowestCommonAncestor2(root, p, q *TreeNode) *TreeNode {
+	ancestor := root
+
+	for ancestor != nil {
+		if p.Val < ancestor.Val && q.Val < ancestor.Val {
+			ancestor = ancestor.Left
+		} else if p.Val > ancestor.Val && q.Val > ancestor.Val {
+			ancestor = ancestor.Right
+		} else {
+			break
+		}
+	}
+
+	return ancestor
+}
