@@ -11,5 +11,7 @@ func Test_maxSubArray(t *testing.T)  {
 
 func Test_climbStirs(t *testing.T) {
 	t.Log(climbStairs(2))
+	t.Log(climbStairs2(2))
 	t.Log(climbStairs(3))
+	t.Log(climbStairs2(3))
 }
