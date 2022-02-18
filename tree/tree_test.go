@@ -232,3 +232,14 @@ func Test_isSubTree(t *testing.T) {
 	bs = CreateBTree(arrs)
 	t.Log(isSubtree(bs, bt))
 }
+
+func Test_mergeTrees(t *testing.T) {
+	t1 := CreateBTree([]int{1,3,2,5})
+	t2 := CreateBTree([]int{2,1,3,null,4,null,7})
+
+	t.Log(LevelTraversal(mergeTrees(t1, t2)))
+
+	t1 = CreateBTree([]int{1})
+	t2 = CreateBTree([]int{1, 2})
+	t.Log(LevelTraversal(mergeTrees(t1, t2)))
+}
