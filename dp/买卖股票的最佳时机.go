@@ -5,7 +5,7 @@ import (
 )
 
 // 方法二： 遍历一遍
-func maxProfit3(prices []int) int {
+func maxProfit(prices []int) int {
 	minPrices := math.MaxInt64
 	maxProfit := 0
 	for i := 0; i < len(prices); i++ {
