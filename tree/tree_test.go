@@ -219,3 +219,16 @@ func Test_findTilt(t *testing.T) {
 	bt = CreateBTree(arr)
 	t.Log(findTilt(bt))
 }
+
+func Test_isSubTree(t *testing.T) {
+	arrs := []int{3,4,5,1,2}
+	arrt := []int{4, 1,2}
+	bs := CreateBTree(arrs)
+	bt := CreateBTree(arrt)
+
+	t.Log(isSubtree(bs, bt))
+
+	arrs =  []int{3,4,5,1,2,null,null,null,null,0}
+	bs = CreateBTree(arrs)
+	t.Log(isSubtree(bs, bt))
+}
