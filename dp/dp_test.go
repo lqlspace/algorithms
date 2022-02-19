@@ -23,3 +23,11 @@ func Test_maxProfit(t *testing.T) {
 	arr =  []int{7,6,4,3,1}
 	t.Log(maxProfit(arr))
 }
+
+func Test_generate(t *testing.T) {
+	t.Log(generate(1))
+	t.Log(generate(2))
+	t.Log(generate(3))
+	t.Log(generate(4))
+	t.Log(generate(5))
+}
