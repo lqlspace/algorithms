@@ -31,3 +31,12 @@ func Test_generate(t *testing.T) {
 	t.Log(generate(4))
 	t.Log(generate(5))
 }
+
+func Test_getRow(t *testing.T) {
+	t.Log(getRow(0))
+	t.Log(getRow(1))
+	t.Log(getRow(2))
+	t.Log(getRow(3))
+	t.Log(getRow(4))
+	t.Log(getRow(5))
+}
