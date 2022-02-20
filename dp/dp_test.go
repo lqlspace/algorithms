@@ -70,3 +70,8 @@ func Test_fib(t *testing.T) {
 	t.Log(fib(7))
 	t.Log(fib2(7))
 }
+
+func Test_minCostClimbingStairs(t *testing.T) {
+	t.Log(minCostClimbingStairs([]int{10, 15, 20}))
+	t.Log(minCostClimbingStairs([]int{1,100,1,1,1,100,1,1,100,1}))
+}
