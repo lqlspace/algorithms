@@ -55,3 +55,18 @@ func Test_isSubsequence(t *testing.T)  {
 	t.Log(isSubsequence("aaabbbc", "afsdfadfsadfbbdsfsdbfsdb"))
 	t.Log(isSubsequence2("aaabbbc", "afsdfadfsadfbbdsfsdbfsdb"))
 }
+
+func Test_fib(t *testing.T) {
+	t.Log(fib(2))
+	t.Log(fib2(2))
+	t.Log(fib(3))
+	t.Log(fib2(3))
+	t.Log(fib(4))
+	t.Log(fib2(4))
+	t.Log(fib(5))
+	t.Log(fib2(5))
+	t.Log(fib(6))
+	t.Log(fib2(6))
+	t.Log(fib(7))
+	t.Log(fib2(7))
+}
