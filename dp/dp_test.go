@@ -46,3 +46,9 @@ func Test_countBits(t *testing.T)  {
 	t.Log(countBits2(7))
 	t.Log(countBits3(7))
 }
+
+func Test_isSubsequence(t *testing.T)  {
+	t.Log(isSubsequence("ace", "abcdfe"))
+	t.Log(isSubsequence("aaabbb", "afsdfadfsadfbbdsfsdbfsdb"))
+	t.Log(isSubsequence("aaabbbc", "afsdfadfsadfbbdsfsdbfsdb"))
+}
