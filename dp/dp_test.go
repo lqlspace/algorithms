@@ -49,6 +49,9 @@ func Test_countBits(t *testing.T)  {
 
 func Test_isSubsequence(t *testing.T)  {
 	t.Log(isSubsequence("ace", "abcdfe"))
+	t.Log(isSubsequence2("ace", "abcdfe"))
 	t.Log(isSubsequence("aaabbb", "afsdfadfsadfbbdsfsdbfsdb"))
+	t.Log(isSubsequence2("aaabbb", "afsdfadfsadfbbdsfsdbfsdb"))
 	t.Log(isSubsequence("aaabbbc", "afsdfadfsadfbbdsfsdbfsdb"))
+	t.Log(isSubsequence2("aaabbbc", "afsdfadfsadfbbdsfsdbfsdb"))
 }
