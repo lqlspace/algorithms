@@ -40,3 +40,9 @@ func Test_getRow(t *testing.T) {
 	t.Log(getRow(4))
 	t.Log(getRow(5))
 }
+
+func Test_countBits(t *testing.T)  {
+	t.Log(countBits(7))
+	t.Log(countBits2(7))
+	t.Log(countBits3(7))
+}
