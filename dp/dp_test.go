@@ -75,3 +75,12 @@ func Test_minCostClimbingStairs(t *testing.T) {
 	t.Log(minCostClimbingStairs([]int{10, 15, 20}))
 	t.Log(minCostClimbingStairs([]int{1,100,1,1,1,100,1,1,100,1}))
 }
+
+func Test_divisorGames(t *testing.T) {
+	t.Log(divisorGames(1))
+	t.Log(divisorGames(2))
+	t.Log(divisorGames(3))
+	t.Log(divisorGames(4))
+	t.Log(divisorGames(5))
+	t.Log(divisorGames(6))
+}
