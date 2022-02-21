@@ -84,3 +84,14 @@ func Test_divisorGames(t *testing.T) {
 	t.Log(divisorGames(5))
 	t.Log(divisorGames(6))
 }
+
+func Test_tribonacci(t *testing.T) {
+	t.Log(tribonacci(0))
+	t.Log(tribonacci(1))
+	t.Log(tribonacci(2))
+	t.Log(tribonacci(3))
+	t.Log(tribonacci(4))
+	t.Log(tribonacci(5))
+	t.Log(tribonacci(6))
+	t.Log(tribonacci(25))
+}
