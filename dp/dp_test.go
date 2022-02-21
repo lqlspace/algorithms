@@ -69,6 +69,9 @@ func Test_fib(t *testing.T) {
 	t.Log(fib2(6))
 	t.Log(fib(7))
 	t.Log(fib2(7))
+
+	t.Log(fib(45))
+	t.Log(fib3(45))
 }
 
 func Test_minCostClimbingStairs(t *testing.T) {
@@ -94,4 +97,10 @@ func Test_tribonacci(t *testing.T) {
 	t.Log(tribonacci(5))
 	t.Log(tribonacci(6))
 	t.Log(tribonacci(25))
+}
+
+func Test_getMaximumGenerated(t *testing.T) {
+	t.Log(getMaximumGenerated(7))
+	t.Log(getMaximumGenerated(2))
+	t.Log(getMaximumGenerated(3))
 }
