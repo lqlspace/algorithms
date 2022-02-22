@@ -1,7 +1,7 @@
 package sort
 
 /**********************堆排序*****************************/
-func HeapSort(arr []int) {
+func HeapSort(arr []int) []int {
 	n := len(arr)
 
 	// 建堆
@@ -14,10 +14,12 @@ func HeapSort(arr []int) {
 		arr[0], arr[i] = arr[i], arr[0]
 		heapify(arr, i, 0)
 	}
+
+	return arr
 }
 
 
-func heapify(arr []int, n, idx int) {
+func heapify(arr []int, n, idx int)  {
 	max := idx
 	left := 2 * idx + 1
 	right := 2 * idx + 2
