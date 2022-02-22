@@ -7,13 +7,13 @@ func ShellSort(nums []int) []int {
 	return nums
 }
 
-func shell(arr []int, low, high int) {
+func shell(nums []int, low, high int) {
 	n := high - low + 1
 
 	for key := n/2; key > 0; key /= 2 {
-		for i := low + key; i <= high; i++ {
-			for j := i; j >= key && arr[j] < arr[j-key]; j -= key {
-				arr[j], arr[j-key] = arr[j-key], arr[j]
+		for i := low+key; i <= high; i++ {
+			for j := i; j >= key && nums[j] < nums[j-key]; j -= key {
+				nums[j], nums[j-key] = nums[j-key], nums[j]
 			}
 		}
 	}
