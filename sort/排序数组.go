@@ -5,6 +5,7 @@ func sortArray(nums []int) []int {
 	//return HeapSort(nums)
 	//return MergeSort(nums)
 	//return ShellSort(nums)
-	return InsertSort(nums)
+	//return InsertSort(nums)
+	return SelectionSort(nums)
 }
 
