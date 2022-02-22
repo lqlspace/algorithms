@@ -1,7 +1,15 @@
 package sort
 
-func QuickSort(arr []int) {
+import (
+	"math/rand"
+	"time"
+)
+
+func QuickSort(arr []int) []int {
+	rand.Seed(time.Now().UnixNano())
+
 	quickSort(arr, 0, len(arr)-1)
+	return arr
 }
 
 func quickSort(arr []int, low, high int)  {
@@ -9,23 +17,24 @@ func quickSort(arr []int, low, high int)  {
 		return
 	}
 
-	pivotIdx := partition(arr, low, high)
-	quickSort(arr, low, pivotIdx-1)
-	quickSort(arr, pivotIdx+1, high)
+	pivot := partition(arr, low, high)
+	quickSort(arr, low, pivot-1)
+	quickSort(arr, pivot+1, high)
 
 }
 
 func partition(arr []int, low, high int) int {
-	pivot := high
+	pos := rand.Intn(high-low+1) + low
+	arr[pos], arr[high] = arr[high], arr[pos]
 
-	i := low-1
+	i, pivot:= low, high
 	for j := low; j < high; j++ {
 		if arr[j] < arr[pivot] {
-			i++
 			arr[i], arr[j] = arr[j], arr[i]
+			i++
 		}
 	}
-	arr[i+1], arr[pivot] = arr[pivot], arr[i+1]
+	arr[i], arr[pivot] = arr[pivot], arr[i]
 
-	return i+1
+	return i
 }

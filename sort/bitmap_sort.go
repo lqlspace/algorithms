@@ -19,10 +19,3 @@ func BitmapSort(items []int, min, max int) {
 		}
 	}
 }
-
-func BitmapSort(items []int, min, max int)  {
-	lens := (max-min) / 8 + 1
-	s := make([]int, lens)
-
-
-}

@@ -68,3 +68,9 @@ func TestQuickStart(t *testing.T) {
 	QuickSort(arr)
 	t.Log(arr)
 }
+
+func Test_sortArray(t *testing.T) {
+	t.Log(sortArray([]int{1, 3, 4, 2, 9, 7}))
+	t.Log(sortArray([]int{9, 7, 5, 5, 3, 8, 7}))
+	t.Log(sortArray([]int{}))
+}
