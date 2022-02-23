@@ -2,20 +2,21 @@ package medium
 
 func lengthOfLongestSubstring(s string) int {
 	ans, n := 0, len(s)
-	m := map[byte]struct{}{}
+	m := make(map[byte]struct{})
 
-	for left, right := 0, 0; left < n; left++ {
-		if left > 0 {
-			delete(m, s[left-1])
+	for i, j := 0, 0; i < n; i++ {
+		if i > 0 {
+			delete(m, s[i-1])
 		}
 
-		for right < n {
-			if _, ok := m[s[right]]; ok {
+		for j < n {
+			if _, ok := m[s[j]]; ok {
 				break
 			}
-			m[s[right]] = struct{}{}
-			right++
+
+			m[s[j]] = struct{}{}
 			ans = max(ans, len(m))
+			j++
 		}
 	}
 
@@ -23,11 +24,12 @@ func lengthOfLongestSubstring(s string) int {
 }
 
 func max(a, b int) int {
-	if a > b {
-		return a
+	if a < b {
+		return b
 	}
 
-	return b
+	return  a
 }
+
 
 
