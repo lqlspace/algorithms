@@ -33,5 +33,24 @@ func TestFind(t *testing.T) {
 
 func Test_findKthLargest(t *testing.T)  {
 	t.Log(findKthLargest([]int{3,2,1,5,6,4}, 2))
+	t.Log(findKthLargest2([]int{3,2,1,5,6,4}, 2))
 }
+
+func Benchmark_findKthLargest(b *testing.B)  {
+	b.StopTimer()
+	b.StartTimer()
+	for i := 0; i < b.N; i++ {
+		findKthLargest([]int{3,2,1,5,6,4}, 2)
+	}
+}
+
+func Benchmark_findKthLargest2(b *testing.B)  {
+
+	b.StopTimer()
+	b.StartTimer()
+	for i := 0; i < b.N; i++ {
+		findKthLargest2([]int{3,2,1,5,6,4}, 2)
+	}
+}
+
 
