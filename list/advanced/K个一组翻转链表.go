@@ -20,14 +20,14 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 	return sentinel.Next
 }
 
-func reverseList(head *ListNode, start, stop *ListNode) *ListNode {
+func reverseList(head *ListNode, pre, stop *ListNode) *ListNode {
 	p := head
 
 	for p != stop {
 		tmp := p
 		p = p.Next
-		tmp.Next = start.Next
-		start.Next = tmp
+		tmp.Next = pre.Next
+		pre.Next = tmp
 	}
 
 	return head
