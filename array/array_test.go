@@ -31,3 +31,7 @@ func TestFind(t *testing.T) {
 	t.Log(found)
 }
 
+func Test_findKthLargest(t *testing.T)  {
+	t.Log(findKthLargest([]int{3,2,1,5,6,4}, 2))
+}
+
