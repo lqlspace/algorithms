@@ -50,7 +50,7 @@ func (r *Ring) Move(n int) *Ring {
 }
 
 
-func New(n int) *Ring {
+func NewRing(n int) *Ring {
 	if n <= 0 {
 		return nil
 	}
