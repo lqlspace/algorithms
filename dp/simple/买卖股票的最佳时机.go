@@ -6,13 +6,12 @@ import (
 
 // 方法二： 遍历一遍
 func maxProfit(prices []int) int {
-	minPrices := math.MaxInt64
-	maxProfit := 0
-	for i := 0; i < len(prices); i++ {
-		if prices[i] < minPrices {
-			minPrices = prices[i]
-		} else if prices[i] - minPrices > maxProfit {
-			maxProfit = prices[i]
+	minPrice, maxProfit :=  math.MaxInt64, 0
+	for _, price := range prices {
+		if price < minPrice {
+			minPrice = price
+		} else if price - minPrice > maxProfit {
+			maxProfit = price - minPrice
 		}
 	}
 
