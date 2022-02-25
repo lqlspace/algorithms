@@ -1,18 +1,14 @@
 package simple
 
-import (
-	"unsafe"
-)
-
 
 // 哈希表(时间复杂度O（N），空间复杂度O(N))
-func hasCycleMethod1(head *ListNode) bool {
-	addrMap := make(map[unsafe.Pointer]struct{})
+func hasCycle1(head *ListNode) bool {
+	m := make(map[*ListNode]struct{})
 	for head != nil {
-		if _, ok := addrMap[unsafe.Pointer(head)]; ok 	{
+		if _, ok := m[head]; ok {
 			return true
 		}
-		addrMap[unsafe.Pointer(head)] = struct{}{}
+		m[head] = struct{}{}
 		head = head.Next
 	}
 
@@ -22,8 +18,8 @@ func hasCycleMethod1(head *ListNode) bool {
 
 // 快慢指针（时间复杂度O(N)，空间复杂度O(1)）
 // 在环里，跑的快的最终一定会追上跑的慢的
-func hasCycleMethod2(head *ListNode) bool {
-	if head == nil {
+func hasCycle2(head *ListNode) bool {
+	if head == nil || head.Next == nil {
 		return false
 	}
 
@@ -32,9 +28,10 @@ func hasCycleMethod2(head *ListNode) bool {
 		if fast == slow {
 			return true
 		}
-		fast = fast.Next.Next
 		slow = slow.Next
+		fast = fast.Next.Next
 	}
 
 	return false
 }
+
