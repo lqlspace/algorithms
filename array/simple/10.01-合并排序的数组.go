@@ -6,21 +6,20 @@ package simple
 	3. 空间复杂度为O(1);
  */
 
-func Merge(master []int, m int, sub []int, n int)  {
-	i, j, k := m-1, n-1, 1
+func merge(nums1 []int, m int, nums2 []int, n int)  {
+	i, j, k := m-1, n-1, m+n-1
 	for i >= 0 && j >= 0 {
-		if master[i] > sub[j] {
-			master[m+n-k] = master[i]
+		if nums1[i] > nums2[j] {
+			nums1[k] = nums1[i]
 			i--
 		} else {
-			master[m+n-k] = sub[j]
+			nums1[k] = nums2[j]
 			j--
 		}
-		k++
+		k--
 	}
+	if j >= 0 {
 
-	for j >= 0 {
-		master[m+n-k] = sub[j]
-		j--
+		copy(nums1[:k+1], nums2[:j])
 	}
 }

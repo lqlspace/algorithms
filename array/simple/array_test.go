@@ -4,18 +4,6 @@ import (
 	"testing"
 )
 
-func TestMerge(t *testing.T) {
-	master := make([]int, 8)
-	master[0] = 1
-	master[1] = 3
-	master[2] = 5
-	sub := []int{2, 4, 6, 7, 8}
-
-	Merge(master, 3, sub, 5)
-
-	t.Log(master)
-}
-
 func TestFind(t *testing.T) {
 	arr := [][]int{
 		{1, 2, 8, 9},
@@ -59,4 +47,17 @@ func Test_twoSum(t *testing.T)  {
 	t.Log(twoSum([]int{3, 3}, 6))
 }
 
+func Test_merge(t *testing.T)  {
+	nums1, m, nums2, n := []int{1,2,3,0,0,0}, 3, []int{2,5,6}, 3
+	merge(nums1, m, nums2, n)
+	t.Log(nums1)
+
+	nums1, m, nums2, n = []int{1}, 1, []int{}, 0
+	merge(nums1, m, nums2, n)
+	t.Log(nums1)
+
+	nums1, m, nums2, n = make([]int, 0, 1), 0, []int{1}, 1
+	merge(nums1, m, nums2, n)
+	t.Log(nums1)
+}
 
