@@ -1,4 +1,4 @@
-package tree
+package simple
 
 func postorderTraversal(root *TreeNode) (arr []int) {
 	var post func(root *TreeNode)

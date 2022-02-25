@@ -1,4 +1,4 @@
-package tree
+package medium
 
 func CreateBTree(arr []int) *TreeNode {
 	if len(arr) == 0 {

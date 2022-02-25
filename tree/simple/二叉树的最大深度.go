@@ -1,4 +1,4 @@
-package tree
+package simple
 
 
 // 1. 深度优先遍历

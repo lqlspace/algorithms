@@ -1,4 +1,4 @@
-package tree
+package simple
 
 func diameterOfBinaryTree(root *TreeNode) int {
 	ans := 1

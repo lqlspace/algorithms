@@ -1,4 +1,4 @@
-package tree
+package simple
 
 // 两次遍历
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {

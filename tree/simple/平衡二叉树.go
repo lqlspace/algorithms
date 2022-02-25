@@ -1,4 +1,4 @@
-package tree
+package simple
 
 // 时间复杂度O(N^2), 空间复杂度O(N^2)
 func isBalanced(root *TreeNode) bool {

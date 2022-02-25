@@ -1,4 +1,4 @@
-package tree
+package simple
 
 func findTilt(root *TreeNode) int {
 	var ans int

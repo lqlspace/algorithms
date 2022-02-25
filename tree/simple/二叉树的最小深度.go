@@ -1,4 +1,4 @@
-package tree
+package simple
 
 
 // 广度优先搜索

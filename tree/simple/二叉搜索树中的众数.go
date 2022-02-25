@@ -1,4 +1,4 @@
-package tree
+package simple
 
 func findMode(root *TreeNode) (ans []int) {
 	ans = []int{}

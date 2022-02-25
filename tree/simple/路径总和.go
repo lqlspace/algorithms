@@ -1,4 +1,4 @@
-package tree
+package simple
 
 func hasPathSum(root *TreeNode, targetSum int) bool {
 	return pathSum(root, 0, targetSum)

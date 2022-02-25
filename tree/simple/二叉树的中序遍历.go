@@ -1,4 +1,4 @@
-package tree
+package simple
 
 func inorderTraversal(root *TreeNode) (arr []int) {
 	var inorder func(root *TreeNode)

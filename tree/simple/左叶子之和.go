@@ -1,4 +1,4 @@
-package tree
+package simple
 
 // 深度优先搜索
 func sumOfLeftLeaves(root *TreeNode) int {

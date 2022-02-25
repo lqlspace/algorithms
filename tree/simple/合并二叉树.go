@@ -1,4 +1,4 @@
-package tree
+package simple
 
 
 func mergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
