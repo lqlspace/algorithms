@@ -13,18 +13,17 @@ func threeSum(nums []int) [][]int {
 		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
-		target := -1 * nums[i]
-		for j, k := i + 1, n-1; j < n-1; j++ {
+		for j, k := i+1, n-1; j < k; j++ {
 			if j > i+1 && nums[j] == nums[j-1] {
 				continue
 			}
-			for j < k && nums[j] + nums[k] > target {
+			for j < k && nums[i] + nums[j] + nums[k] > 0 {
 				k--
 			}
 			if j == k {
 				break
 			}
-			if nums[j] + nums[k] == target {
+			if nums[i] + nums[j] + nums[k] == 0 {
 				ans = append(ans, []int{nums[i], nums[j], nums[k]})
 			}
 		}

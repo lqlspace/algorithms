@@ -1,4 +1,4 @@
-package dp
+package simple
 
 func generate(numRows int) [][]int {
 	rows := make([][]int, numRows)

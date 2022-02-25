@@ -1,4 +1,4 @@
-package dp
+package simple
 
 func divisorGames(n int) bool {
 	f := make([]bool, n+3)

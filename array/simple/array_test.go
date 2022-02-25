@@ -1,4 +1,4 @@
-package array
+package simple
 
 import (
 	"testing"

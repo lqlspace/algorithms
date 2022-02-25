@@ -1,4 +1,4 @@
-package dp
+package simple
 
 import (
 	"math"

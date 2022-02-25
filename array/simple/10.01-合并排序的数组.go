@@ -1,4 +1,4 @@
-package array
+package simple
 
 /*
 	1. 将sub合入master;

@@ -1,4 +1,4 @@
-package dp
+package simple
 
 func fib(n int) int {
 	if n < 2 {

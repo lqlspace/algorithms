@@ -1,4 +1,4 @@
-package dp
+package simple
 
 func isSubsequence(s string, t string) bool {
 	n, m := len(s), len(t)

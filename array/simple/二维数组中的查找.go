@@ -1,4 +1,4 @@
-package array
+package simple
 
 /*
 1. 每一行都按照从左到右递增的顺序排序，每一列都按照从上到下的顺序排序

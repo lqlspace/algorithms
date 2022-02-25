@@ -1,4 +1,4 @@
-package dp
+package simple
 
 func tribonacci(n int) int {
 	if n < 2 {

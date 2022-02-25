@@ -1,4 +1,4 @@
-package dp
+package simple
 
 func getRow(rowIndex int) []int {
 	var pre, cur []int

@@ -1,4 +1,4 @@
-package dp
+package simple
 
 func getMaximumGenerated(n int) int {
 	if n < 2 {
