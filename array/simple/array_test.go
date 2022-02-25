@@ -53,4 +53,10 @@ func Benchmark_findKthLargest2(b *testing.B)  {
 	}
 }
 
+func Test_twoSum(t *testing.T)  {
+	t.Log(twoSum([]int{2,7,11,15}, 9))
+	t.Log(twoSum([]int{3, 2, 4}, 6))
+	t.Log(twoSum([]int{3, 3}, 6))
+}
+
 
