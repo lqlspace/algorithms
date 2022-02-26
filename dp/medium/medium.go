@@ -6,7 +6,7 @@ func longestPalindrome(s string) string {
 	}
 
 	start, end := 0, 0
-	for i := 0; i < len(s); i++ {
+	for i := 0; i < len(s)-1; i++ {
 		l1, r1 := expandAroundCenter(s, i, i)
 		l2, r2 := expandAroundCenter(s, i, i+1)
 		if r1 - l1 > end - start {
@@ -21,7 +21,7 @@ func longestPalindrome(s string) string {
 }
 
 func expandAroundCenter(s string, left, right int) (int, int) {
-	for left > 0 && right < len(s) && s[left] == s[right] {
+	for left >= 0 && right < len(s) && s[left] == s[right] {
 		left, right = left-1, right+1
 	}
 
