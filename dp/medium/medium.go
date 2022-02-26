@@ -1,5 +1,6 @@
 package medium
 
+// 中心扩展法
 func longestPalindrome(s string) string {
 	if s == "" {
 		return ""
@@ -30,7 +31,7 @@ func expandAroundCenter(s string, l, r int) (int, int) {
 
 
 
-// 动态规划
+// 动态规划法
 func longestPalindrome2(s string) string {
 	n := len(s)
 	if n < 2 {
