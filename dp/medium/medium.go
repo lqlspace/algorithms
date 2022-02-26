@@ -32,43 +32,41 @@ func expandAroundCenter(s string, l, r int) (int, int) {
 
 // 动态规划
 func longestPalindrome2(s string) string {
-	l := len(s)
-	if l < 2 {
+	n := len(s)
+	if n < 2 {
 		return s
 	}
 
-	r := make([][]bool, l)
-	for i := 0; i < l; i++ {
-		r[i] = make([]bool, l)
+	arr := make([][]bool, n)
+	for i := 0; i < n; i++ {
+		arr[i] = make([]bool, n)
+		arr[i][i] = true
 	}
 
-	ml, si := 1, 0
-	// 字串长度 sl = j - i + 1
-	for sl := 2; sl <= l; sl++ {
-		// 左边界 i
-		for i := 0; i < l; i++ {
-			// 右边界 j - i + 1 = sl
-			j := i + sl -1
-			if j >= l{
+	start, max := 0, 1
+	for l := 2; l <= n; l++ {
+		for i := 0; i < n; i++ {
+			j := i + l - 1
+			if j >= n {
 				break
 			}
-			if s[i] != s[j] {
-				r[i][j] = false
-			} else {
-				if sl <= 3 {
-					r[i][j] = true
+
+			if s[i] == s[j] {
+				if j - i + 1 < 3 {
+					arr[i][j] = true
 				} else {
-					r[i][j] = r[i+1][j-1]
+					arr[i][j] = arr[i+1][j-1]
 				}
 			}
 
-			if r[i][j] && sl > ml {
-				ml = sl
-				si = i
+			if arr[i][j] && j - i + 1 > max {
+				max = j - i + 1
+				start = i
 			}
 		}
 	}
-	return s[si:si+ml]
+
+	return s[start:start+max]
 }
 
 
