@@ -73,16 +73,8 @@ func Test_reverseVowels(t *testing.T)  {
 }
 
 func Test_addString(t *testing.T)  {
-	a := "5024"
-	b := "100"
-
-	c := addString(a, b)
-	t.Log(c)
-
-	a = "8096"
-	b = "2107"
-	c = addString(a, b)
-	t.Log(c)
+	t.Log(addString("5024", "100"))
+	t.Log(addString2("5024", "100"))
 }
 
 func Test_countSegments(t *testing.T)  {
