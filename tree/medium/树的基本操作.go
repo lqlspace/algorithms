@@ -57,3 +57,20 @@ func LevelTraversal(root *TreeNode) []int {
 
 	return  arr[:len(arr)-num]
 }
+
+func dfs(head *TreeNode, val int) (*TreeNode, bool) {
+	if head == nil {
+		return nil, false
+	}
+
+	if head.Val == val {
+		return head, true
+	}
+
+	left, exist := dfs(head.Left, val)
+	if !exist {
+		return dfs(head.Right, val)
+	}
+
+	return left, true
+}
