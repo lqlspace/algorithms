@@ -78,3 +78,81 @@ func numIslands2(grid [][]byte) int {
 
 	return num
 }
+
+
+type UnionFindSet struct {
+	Parents []int // 每个结点的顶级节点
+	SetCount int // 连通分量的个数
+}
+
+
+func (u *UnionFindSet) Init(grid [][]byte) {
+	row := len(grid)
+	col := len(grid[0])
+	count := row * col
+	u.Parents = make([]int, count)
+	for i := 0; i < row; i++ {
+		for j := 0; j < col; j++ {
+			u.Parents[i*col+j] = i * col + j
+			if grid[i][j] == '1' {
+				u.SetCount++
+			}
+		}
+	}
+}
+
+func (u *UnionFindSet) Find(node int) int {
+	if u.Parents[node] == node {
+		return node
+	}
+
+	root := u.Find(u.Parents[node])
+	u.Parents[node] = root
+	return root
+}
+
+func (u *UnionFindSet) Union(node1, node2 int) {
+	root1 := u.Find(node1)
+	root2 := u.Find(node2)
+
+	if root1 == root2 {
+		return
+	} else if root1 < root2 {
+		u.Parents[root1] = root2
+	} else {
+		u.Parents[root2] = root1
+	}
+	u.SetCount--
+}
+
+func numIslands3(grid [][]byte) int {
+	if len(grid) == 0 || len(grid[0]) == 0 {
+		return 0
+	}
+
+	u := &UnionFindSet{}
+	u.Init(grid)
+
+	row, col := len(grid), len(grid[0])
+	for i := 0; i < row; i++ {
+		for j := 0; j < col; j++ {
+			if grid[i][j] == '1' {
+				if i - 1 >= 0 && grid[i-1][j] == '1' {
+					u.Union(i*col+j, (i-1)*col+j)
+				}
+				if i + 1 < row && grid[i+1][j] == '1' {
+					u.Union(i*col+j, (i+1)*col+j)
+				}
+				if j - 1 >= 0 && grid[i][j-1] == '1' {
+					u.Union(i*col+j, i*col+j-1)
+				}
+				if j + 1 < col && grid[i][j+1] == '1' {
+					u.Union(i*col+j, i*col+j+1)
+				}
+				grid[i][j] = '0'
+			}
+		}
+	}
+
+	return u.SetCount
+}
