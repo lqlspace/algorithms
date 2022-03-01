@@ -1,5 +1,8 @@
 package advanced
 
+import (
+	"container/heap"
+)
 
 // 循环两两合并
 func mergeKLists(lists []*ListNode) *ListNode {
@@ -69,3 +72,63 @@ func merge(lists []*ListNode, low, high int) *ListNode {
 }
 
 
+// 优先队列
+type priorityQueue []*ListNode
+
+func (p priorityQueue) Len() int {
+	return len(p)
+}
+
+func (p priorityQueue) Less(i, j int) bool {
+	return p[i].Val < p[j].Val
+}
+
+func (p priorityQueue) Swap(i, j int) {
+	p[i], p[j] = p[j], p[i]
+}
+
+func (p *priorityQueue) Push(x interface{}) {
+	node := x.(*ListNode)
+	*p = append(*p, node)
+}
+
+func (p *priorityQueue) Pop() interface{} {
+	n := len(*p)
+	item := (*p)[n-1]
+	*p = (*p)[0:n-1]
+
+	return item
+}
+
+
+func mergeKLists4(lists []*ListNode) *ListNode {
+	if len(lists) == 0 {
+		return nil
+	}
+
+	dummy := new(ListNode)
+	pre := dummy
+	pq := make(priorityQueue, 0)
+	for _, v := range lists {
+		if v != nil {
+			pq = append(pq, v)
+		}
+	}
+	heap.Init(&pq)
+
+	for len(pq) > 0 {
+		item := heap.Pop(&pq).(*ListNode)
+		next := item.Next
+
+		item.Next = pre.Next
+		pre.Next = item
+		pre = item
+
+		if next != nil {
+			heap.Push(&pq, next)
+		}
+	}
+
+	return dummy.Next
+
+}
