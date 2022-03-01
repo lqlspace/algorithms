@@ -16,3 +16,13 @@ func TestLRUCache(t *testing.T)  {
 	t.Log(lru.Get(3))
 	t.Log(lru.Get(4))
 }
+
+func Test_reverseBetween(t *testing.T)  {
+	list := CreateList([]int{1, 2, 3, 4, 5})
+	list = reverseBetween(list, 1, 3)
+	TraverseList(list)
+
+	list = CreateList([]int{1, 2, 3, 4, 5})
+	list = reverseBetween(list, 2, 4)
+	TraverseList(list)
+}

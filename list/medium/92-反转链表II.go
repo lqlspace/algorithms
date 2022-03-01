@@ -1,45 +1,24 @@
 package medium
 
-
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func reverseBetween(head *ListNode, m int, n int) *ListNode {
-	if head == nil || head.Next == nil {
+func reverseBetween(head *ListNode, left int, right int) *ListNode {
+	if head == nil {
 		return head
 	}
 
-	sentinel1 := &ListNode{Next:head}
-	cur := sentinel1
-	sentinel2 := new(ListNode)
-	var last *ListNode
-	var num int
-	for cur.Next != nil {
-		num++
-		if m <= num && num <= n {
-			node := cur.Next
-			cur.Next = cur.Next.Next
-			node.Next = sentinel2.Next
-			sentinel2.Next = node
-			if last == nil {
-				last = node
-			}
-		} else if num > n {
-			last.Next = cur.Next
-			cur.Next = sentinel2.Next
-			break
-		} else {
-			cur = cur.Next
-		}
-	}
-	if cur.Next == nil {
-		last.Next = cur.Next
-		cur.Next = sentinel2.Next
+	dummy := &ListNode{Next:head}
+
+	pre := dummy
+	for i := 0; i < left-1; i++ {
+		pre = pre.Next
 	}
 
-	return sentinel1.Next
+	cur := pre.Next
+	for i := 0; i < right-left; i++ {
+		next := cur.Next
+		cur.Next = next.Next
+		next.Next = pre.Next
+		pre.Next = next
+	}
+
+	return dummy.Next
 }
