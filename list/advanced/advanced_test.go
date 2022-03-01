@@ -15,6 +15,6 @@ func Test_mergeKLists(t *testing.T)  {
 	l2 := CreateList([]int{1, 3, 4})
 	l3 := CreateList([]int{2, 6})
 	lists := []*ListNode{l1, l2, l3}
-	l := mergeKLists(lists)
+	l := mergeKLists2(lists)
 	t.Log(TraverseList(l))
 }
