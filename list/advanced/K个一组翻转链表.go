@@ -1,34 +1,31 @@
 package advanced
 
 func reverseKGroup(head *ListNode, k int) *ListNode {
-	sentinel := &ListNode{Next: head}
-	pre, cur := sentinel, head
+	dummy := &ListNode{Next: head}
+	pre, right := dummy, head
 
-	for cur != nil {
+	for right != nil {
 		for i := 0; i < k; i++ {
-			if cur == nil {
-				return sentinel.Next
+			if right == nil {
+				return dummy.Next
 			}
-			cur = cur.Next
+			right = right.Next
 		}
-
-		pre = reverseList(head, pre, cur)
-		pre.Next = cur
-		head = cur
+		pre = reverseList(pre, right)
 	}
 
-	return sentinel.Next
+	return dummy.Next
 }
 
-func reverseList(head *ListNode, pre, stop *ListNode) *ListNode {
-	p := head
+func reverseList(pre, stop *ListNode) *ListNode {
+	cur := pre.Next
 
-	for p != stop {
-		tmp := p
-		p = p.Next
-		tmp.Next = pre.Next
-		pre.Next = tmp
+	for cur.Next != stop {
+		next := cur.Next
+		cur.Next = next.Next
+		next.Next = pre.Next
+		pre.Next = next
 	}
 
-	return head
+	return cur
 }
