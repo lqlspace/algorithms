@@ -95,11 +95,10 @@ func (p *priorityQueue) Push(x interface{}) {
 func (p *priorityQueue) Pop() interface{} {
 	n := len(*p)
 	item := (*p)[n-1]
-	*p = (*p)[0:n-1]
+	*p = (*p)[:n-1]
 
 	return item
 }
-
 
 func mergeKLists4(lists []*ListNode) *ListNode {
 	if len(lists) == 0 {
@@ -108,27 +107,22 @@ func mergeKLists4(lists []*ListNode) *ListNode {
 
 	dummy := new(ListNode)
 	pre := dummy
-	pq := make(priorityQueue, 0)
-	for _, v := range lists {
-		if v != nil {
-			pq = append(pq, v)
+	var pq priorityQueue
+	for i := range lists {
+		if lists[i] != nil {
+			pq = append(pq, lists[i])
 		}
 	}
+
 	heap.Init(&pq)
-
 	for len(pq) > 0 {
-		item := heap.Pop(&pq).(*ListNode)
-		next := item.Next
-
-		item.Next = pre.Next
-		pre.Next = item
-		pre = item
-
-		if next != nil {
-			heap.Push(&pq, next)
+		node := heap.Pop(&pq).(*ListNode)
+		pre.Next = node
+		pre = pre.Next
+		if node.Next != nil {
+			heap.Push(&pq, node.Next)
 		}
 	}
 
 	return dummy.Next
-
 }
