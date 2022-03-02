@@ -45,6 +45,8 @@ func Test_countBits(t *testing.T)  {
 	t.Log(countBits(7))
 	t.Log(countBits2(7))
 	t.Log(countBits3(7))
+	t.Log(countBits4(7))
+	t.Log(countBits5(7))
 }
 
 func Test_isSubsequence(t *testing.T)  {
