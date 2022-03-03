@@ -43,3 +43,23 @@ func min(a, b int) int {
 
 	return b
 }
+
+
+// 双指针
+func trap2(height []int) int {
+	var ans int
+	left, right, leftMax, rightMax := 0, len(height)-1, 0, 0
+	for left < right {
+		leftMax = max(leftMax, height[left])
+		rightMax =  max(rightMax, height[right])
+		if leftMax <= rightMax {
+			ans += leftMax - height[left]
+			left++
+		} else {
+			ans += rightMax - height[right]
+			right--
+		}
+	}
+
+	return ans
+}
