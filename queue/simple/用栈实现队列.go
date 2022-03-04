@@ -1,8 +1,35 @@
 package simple
 
+type Stack struct {
+	items []int
+}
+
+func (s *Stack) Empty() bool {
+	return s.Size() ==  0
+}
+
+func (s *Stack) Size() int {
+	return len(s.items)
+}
+
+func (s *Stack) Push(x int) {
+	s.items = append(s.items, x)
+}
+
+func (s *Stack) Pop() int {
+	val := s.items[s.Size()-1]
+	s.items = s.items[:s.Size()-1]
+
+	return val
+}
+
+func (s *Stack) Top() int {
+	return s.items[s.Size()-1]
+}
+
+
 type MyQueue struct {
-	stack []int
-	swap []int
+	in, out Stack
 }
 
 
@@ -12,40 +39,38 @@ func Constructor() MyQueue {
 
 
 func (this *MyQueue) Push(x int)  {
-	if this.Empty() {
-		this.stack = append(this.stack)
-	}
-
-	for !this.Empty() {
-		val := this.Pop()
-		this.swap = append(this.swap, val)
-	}
-
-	this.stack = append(this.stack, x)
-	for len(this.swap) > 0 {
-		val := this.swap[len(this.swap)-1]
-		this.swap = this.swap[:len(this.swap)-1]
-		this.stack = append(this.stack, val)
-	}
+	this.in.Push(x)
 }
 
 
 func (this *MyQueue) Pop() int {
-	if this.Empty() {
-		return -1
+	if !this.out.Empty() {
+		return this.out.Pop()
 	}
-	val := this.stack[len(this.stack)-1]
-	this.stack = this.stack[:len(this.stack)-1]
 
-	return val
+	for !this.in.Empty() {
+		v := this.in.Pop()
+		this.out.Push(v)
+	}
+
+	return this.out.Pop()
 }
 
 
 func (this *MyQueue) Peek() int {
-	return this.stack[len(this.stack)-1]
+	if !this.out.Empty() {
+		return this.out.Top()
+	}
+
+	for !this.in.Empty() {
+		v := this.in.Pop()
+		this.out.Push(v)
+	}
+
+	return this.out.Top()
 }
 
 
 func (this *MyQueue) Empty() bool {
-	return len(this.stack) == 0
+	return this.in.Empty() && this.out.Empty()
 }
