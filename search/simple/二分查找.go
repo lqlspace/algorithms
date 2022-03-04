@@ -25,3 +25,26 @@ func binarySearch(nums []int, left, right, target int) int {
 		return binarySearch(nums, left, mid-1, target)
 	}
 }
+
+// 迭代
+func search2(nums []int, target int) int {
+	n := len(nums)
+	if n == 0 {
+		return -1
+	}
+
+	left, right := 0, n-1
+	for left <= right {
+		mid := left + (right-left) >> 1
+		if nums[mid] ==  target {
+			return mid
+		} else if nums[mid] <  target {
+			left = mid+1
+		} else {
+			right =  mid-1
+		}
+	}
+
+	return -1
+}
+
