@@ -12,12 +12,13 @@ func maxPathSum(root *TreeNode) int {
 			return 0
 		}
 
-		maxLeftSide := recur(root.Left)
-		maxRightSide := recur(root.Right)
-		rootPath := max(maxLeftSide, 0) + max(maxRightSide, 0) + root.Val
+		maxLeft := max(recur(root.Left), 0)
+		maxRight := max(recur(root.Right), 0)
+
+		rootPath := maxLeft + maxRight + root.Val
 		maxPath = max(rootPath, maxPath)
 
-		return max(max(maxLeftSide, maxRightSide), 0)+root.Val
+		return max(maxLeft, maxRight)+root.Val
 	}
 
 	recur(root)
