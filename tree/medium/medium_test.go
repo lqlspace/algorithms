@@ -15,3 +15,14 @@ func Test_lowestCommonAncestor(t *testing.T)  {
 	q, _ := dfs(head, 1)
 	t.Log(lowestCommonAncestor(head, p, q))
 }
+
+func Test_rightSideView(t *testing.T)  {
+	head := CreateBTree([]int{1,2,3,null,5,null,4})
+	t.Log(rightSideView(head))
+
+	head = CreateBTree([]int{1,null,3})
+	t.Log(rightSideView(head))
+
+	head = CreateBTree([]int{})
+	t.Log(rightSideView(head))
+}
