@@ -26,3 +26,13 @@ func Test_reverseBetween(t *testing.T)  {
 	list = reverseBetween(list, 2, 4)
 	TraverseList(list)
 }
+
+func Test_reorderList(t *testing.T)  {
+	list := CreateList([]int{1, 2, 3, 4})
+	reorderList(list)
+	TraverseList(list)
+
+	list = CreateList([]int{1, 2, 3, 4, 5})
+	reorderList(list)
+	TraverseList(list)
+}
