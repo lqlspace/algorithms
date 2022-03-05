@@ -1,4 +1,4 @@
-package advanced
+package hard
 
 func reverseKGroup(head *ListNode, k int) *ListNode {
 	dummy := &ListNode{Next: head}

@@ -1,4 +1,4 @@
-package advanced
+package hard
 
 import (
 	"testing"
