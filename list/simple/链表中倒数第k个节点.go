@@ -1,13 +1,6 @@
 package simple
 
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
 // 两次遍历（时间复杂度O(n), 空间复杂度O(1)）
 func getKthFromEndMethod1(head *ListNode, k int) *ListNode {
 	num, cur := 0, head
@@ -29,18 +22,18 @@ func getKthFromEndMethod1(head *ListNode, k int) *ListNode {
 
 //双指针
 func getKthFromEndMethod2(head *ListNode, k int) *ListNode {
-	former, latter := head, head
+	front, back := head, head
 	for i := 0; i < k; i++ {
-		if former == nil {
+		if front == nil {
 			return nil
 		}
-		former = former.Next
+		front = front.Next
 	}
 
-	for former != nil {
-		former = former.Next
-		latter = latter.Next
+	for front != nil {
+		front = front.Next
+		back = back.Next
 	}
 
-	return latter
+	return back
 }

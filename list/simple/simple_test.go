@@ -2,6 +2,8 @@ package simple
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestCreateList(t *testing.T) {
@@ -67,5 +69,13 @@ func TestPartition(t *testing.T) {
 	head := CreateList([]int{3, 4, 9,  11, 2, 5})
 	head = Partition(head, 1)
 	TraverseList(head)
+}
+
+func Test_getKthFromEnd(t *testing.T) {
+	node := getKthFromEnd(CreateList([]int{1, 2, 3, 4, 5}), 3)
+	t.Log(node.Val)
+
+	node = getKthFromEnd(CreateList([]int{1}), 3)
+	assert.Nil(t, node)
 }
 
