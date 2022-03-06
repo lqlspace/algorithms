@@ -25,17 +25,17 @@ func binarySqrt(x, low, high int) int {
 
 func mySqrt2(x int) int {
 	low, high := 0, x
+	ans := -1
 	for low <= high {
 		mid := low + (high-low) >> 1
-		n := mid * mid
-		if n == x {
-			return mid
-		} else if n > x {
-			high = mid - 1
-		} else {
+		if mid * mid <= x {
+			ans = mid
 			low = mid + 1
+		} else {
+			high = mid - 1
 		}
+
 	}
 
-	return high
+	return ans
 }

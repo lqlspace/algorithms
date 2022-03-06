@@ -36,3 +36,17 @@ func Test_reorderList(t *testing.T)  {
 	reorderList(list)
 	TraverseList(list)
 }
+
+func Test_removeNthFromEnd(t *testing.T)  {
+	head := CreateList([]int{1,2,3,4,5})
+	head = removeNthFromEnd(head, 2)
+	TraverseList(head)
+
+	head = CreateList([]int{1})
+	head = removeNthFromEnd(head, 1)
+	TraverseList(head)
+
+	head = CreateList([]int{1, 2})
+	head = removeNthFromEnd(head, 1)
+	TraverseList(head)
+}
