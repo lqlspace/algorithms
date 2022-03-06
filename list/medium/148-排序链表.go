@@ -39,17 +39,16 @@ func cutTwoHalf(head *ListNode) (*ListNode, *ListNode) {
 		slow = slow.Next
 	}
 
-	left := head
 	right := slow.Next
 	slow.Next = nil
-	return left, right
+	return head, right
 }
 
 func merge(left, right *ListNode) *ListNode {
 	dummy := new(ListNode)
 	pre := dummy
 	for left != nil && right != nil {
-		if left.Val < right.Val {
+		if left.Val <= right.Val {
 			pre.Next = left
 			left = left.Next
 		} else {
