@@ -50,3 +50,13 @@ func Test_removeNthFromEnd(t *testing.T)  {
 	head = removeNthFromEnd(head, 1)
 	TraverseList(head)
 }
+
+func Test_deleteDuplicates(t *testing.T)  {
+	head := CreateList([]int{1, 1, 2, 3, 3, 4, 4, 5})
+	head = deleteDuplicates(head)
+	TraverseList(head)
+
+	head = CreateList([]int{1,1,1,2,3})
+	head = deleteDuplicates(head)
+	TraverseList(head)
+}
