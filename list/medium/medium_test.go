@@ -60,3 +60,16 @@ func Test_deleteDuplicates(t *testing.T)  {
 	head = deleteDuplicates(head)
 	TraverseList(head)
 }
+
+func Test_sortList2(t *testing.T)  {
+	head := CreateList([]int{4, 2, 1, 3})
+	TraverseList(sortList2(head))
+
+	head = CreateList([]int{4, 2, 1, 3})
+	TraverseList(sortList3(head))
+
+	head = CreateList([]int{4, 2, 1, 1, 3})
+	TraverseList(sortList2(head))
+	head = CreateList([]int{4, 2, 1, 1, 3})
+	TraverseList(sortList3(head))
+}
