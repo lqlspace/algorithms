@@ -17,4 +17,5 @@ func Test_myAtoi(t *testing.T) {
 	t.Log(myAtoi("  -4+2-"))
 	t.Log(myAtoi("-91283472332"))
 	t.Log(myAtoi("9223372036854775808"))
+	t.Log(myAtoi("21474836460"))
 }
