@@ -73,3 +73,10 @@ func Test_sortList2(t *testing.T)  {
 	head = CreateList([]int{4, 2, 1, 1, 3})
 	TraverseList(sortList3(head))
 }
+
+func Test_addTwoNumbers(t *testing.T) {
+	l1 := CreateList([]int{2, 4, 3})
+	l2 := CreateList([]int{5, 6, 4})
+
+	TraverseList(addTwoNumbers2(l1, l2))
+}
