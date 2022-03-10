@@ -38,7 +38,7 @@ func (dfa *WordDFA) getWordCol(c byte) int {
 	}
 }
 
-func reverseWords(s string) string {
+func reverseWords2(s string) string {
 	dfa := CreateWordDFA()
 
 	var ans []string
@@ -51,9 +51,36 @@ func reverseWords(s string) string {
 			idx = i
 		case InterruptState:
 			ans = append(ans, s[i+1:idx+1])
-			idx = 0
+			idx = -1
 		}
 	}
+	if idx >= 0 {
+		ans = append(ans, s[:idx+1])
+	}
+
+	return strings.Join(ans, " ")
+}
+
+
+func reverseWords(s string) string {
+	n := len(s)
+
+	idx := -1
+	var ans []string
+	for i := n-1; i >= 0; i-- {
+		if s[i] == ' ' {
+			if idx >= 0 {
+				ans = append(ans, s[i+1:idx+1])
+				idx = -1
+			}
+			continue
+		}
+
+		if idx == -1 {
+			idx = i
+		}
+	}
+
 	if idx >= 0 {
 		ans = append(ans, s[:idx+1])
 	}
