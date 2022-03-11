@@ -31,3 +31,33 @@ func Test_merge(t *testing.T)  {
 		{1, 3},{2, 6}, {8, 10}, {15, 18},
 	}))
 }
+
+func Test_nextPermutation(t *testing.T) {
+	arr := []int{3, 2, 1}
+	nextPermutation(arr)
+	t.Log(arr)
+
+	arr = []int{1, 2, 3}
+	nextPermutation(arr)
+	t.Log(arr)
+
+	arr = []int{1, 3, 2}
+	nextPermutation(arr)
+	t.Log(arr)
+
+	arr = []int{1, 1}
+	nextPermutation(arr)
+	t.Log(arr)
+
+	arr = []int{1, 5, 1}
+	nextPermutation(arr)
+	t.Log(arr)
+
+	arr = []int{5, 1, 1}
+	nextPermutation(arr)
+	t.Log(arr)
+
+	arr = []int{5, 4, 3, 2, 1}
+	nextPermutation(arr)
+	t.Log(arr)
+}
