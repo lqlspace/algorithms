@@ -22,3 +22,11 @@ func Test_lengthOfLIS(t *testing.T)  {
 	t.Log(lengthOfLIS([]int{0,1,0,3,2,3}))
 	t.Log(lengthOfLIS([]int{7,7,7,7,7,7,7}))
 }
+
+func Test_longestCommonSubsequence(t *testing.T)  {
+	t.Log(longestCommonSubsequence("abcde", "ace"))
+	t.Log(longestCommonSubsequence("abcde", ""))
+	t.Log(longestCommonSubsequence("abcde", "fgh"))
+	t.Log(longestCommonSubsequence("abcde", "acef"))
+	t.Log(longestCommonSubsequence("oxcpqrsvwf", "shmtulqrypy"))
+}
