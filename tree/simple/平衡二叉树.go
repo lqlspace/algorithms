@@ -1,24 +1,28 @@
 package simple
 
-// 时间复杂度O(N^2), 空间复杂度O(N^2)
+// 自顶向下：时间复杂度O(N^2)，空间复杂度O(N^2)
 func isBalanced(root *TreeNode) bool {
 	if root == nil {
 		return true
 	}
 
-	if !isBalanced(root.Left) || !isBalanced(root.Right) {
-		return false
+	return abs(maxDep(root.Left)-maxDep(root.Right)) <= 1 && isBalanced(root.Left) && isBalanced(root.Right)
+}
+
+func maxDep(root *TreeNode) int {
+	if root == nil {
+		return 0
 	}
 
-	left := maxDepth(root.Left)
-	right := maxDepth(root.Right)
+	return max(maxDep(root.Left), maxDep(root.Right)) + 1
+}
 
-	n := left - right
-	if n > 1 || n < -1 {
-		return false
+func abs(x int) int {
+	if x < 0 {
+		return -1 * x
 	}
 
-	return true
+	return x
 }
 
 // 自底向上的递归
@@ -38,12 +42,4 @@ func height(root *TreeNode) int {
 	}
 
 	return max(leftHeight, rightHeight) + 1
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-
-	return x
 }
