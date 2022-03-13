@@ -30,3 +30,8 @@ func Test_rightSideView(t *testing.T)  {
 func Test_buildTree(t *testing.T) {
 	t.Log(LevelTraversal(buildTree([]int{1, 2, 4, 5, 3, 6, 7}, []int{4, 2, 5, 1, 6, 3, 7})))
 }
+
+func Test_sumNumbers(t *testing.T) {
+	t.Log(sumNumbers(CreateBTree([]int{1, 2, 3})))
+	t.Log(sumNumbers(CreateBTree([]int{4,9,0,5,1})))
+}
