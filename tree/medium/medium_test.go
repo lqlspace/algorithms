@@ -35,3 +35,14 @@ func Test_sumNumbers(t *testing.T) {
 	t.Log(sumNumbers(CreateBTree([]int{1, 2, 3})))
 	t.Log(sumNumbers(CreateBTree([]int{4,9,0,5,1})))
 }
+
+func Test_pathSum(t *testing.T) {
+	head := CreateBTree([]int{5,4,8,11,null,13,4,7,2,null,null,5,1})
+	t.Log(pathSum(head, 22))
+
+	head = CreateBTree([]int{1, 2, 3})
+	t.Log(pathSum(head, 5))
+
+	head = CreateBTree([]int{1, 2})
+	t.Log(pathSum(head, 0))
+}
