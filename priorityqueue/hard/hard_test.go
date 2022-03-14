@@ -10,4 +10,5 @@ func Test_maxSlidingWindow(t *testing.T)  {
 	t.Log(maxSlidingWindow([]int{1}, 1))
 	t.Log(maxSlidingWindow2([]int{1}, 1))
 	t.Log(maxSlidingWindow([]int{5, 3, 4}, 1))
+	t.Log(maxSlidingWindow2([]int{5, 3, 4}, 1))
 }
