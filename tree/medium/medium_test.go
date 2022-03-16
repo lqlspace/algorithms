@@ -46,3 +46,14 @@ func Test_pathSum(t *testing.T) {
 	head = CreateBTree([]int{1, 2})
 	t.Log(pathSum(head, 0))
 }
+
+func Test_isValidBST(t *testing.T) {
+	head := CreateBTree([]int{2, 1, 3})
+	t.Log(isValidBST(head))
+
+	head = CreateBTree([]int{5,1,4,null,null,3,6})
+	t.Log(isValidBST(head))
+
+	head = CreateBTree([]int{0})
+	t.Log(isValidBST(head))
+}
