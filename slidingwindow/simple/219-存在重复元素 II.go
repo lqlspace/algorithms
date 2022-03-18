@@ -2,15 +2,10 @@ package simple
 
 func containsNearbyDuplicate(nums []int, k int) bool {
 	ht := map[int]struct{}{}
-	for i := 0; i <= k; i++ {
-		if _, exist := ht[nums[i]]; exist {
-			return true
+	for i := 0; i < len(nums); i++ {
+		if i > k {
+			delete(ht, nums[i-k-1])
 		}
-		ht[nums[i]] = struct{}{}
-	}
-
-	for i := k+1; i < len(nums); i++ {
-		delete(ht, nums[i-k-1])
 		if _, exist := ht[nums[i]]; exist {
 			return true
 		}
