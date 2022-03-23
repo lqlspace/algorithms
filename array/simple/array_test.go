@@ -61,3 +61,7 @@ func Test_merge(t *testing.T)  {
 	t.Log(nums1)
 }
 
+func Test_majorityElement(t *testing.T) {
+	t.Log(majorityElement([]int{3,2,3}))
+	t.Log(majorityElement([]int{2,2,1,1,1,2,2}))
+}
