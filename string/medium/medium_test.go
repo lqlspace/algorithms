@@ -29,3 +29,9 @@ func Test_reverseWords(t *testing.T)  {
 	t.Log(reverseWords(" "))
 	t.Log(reverseWords(" a bb   cde  "))
 }
+
+func Test_multiply(t *testing.T)  {
+	t.Log(multiply("11", "2"))
+	t.Log(multiply("25", "15"))
+	t.Log(multiply("999", "999"))
+}
