@@ -2,6 +2,8 @@ package medium
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_longestPalindrome(t *testing.T)  {
@@ -29,4 +31,9 @@ func Test_longestCommonSubsequence(t *testing.T)  {
 	t.Log(longestCommonSubsequence("abcde", "fgh"))
 	t.Log(longestCommonSubsequence("abcde", "acef"))
 	t.Log(longestCommonSubsequence("oxcpqrsvwf", "shmtulqrypy"))
+}
+
+func Test_minPathSum(t *testing.T)  {
+	v := minPathSum([][]int{{1, 3, 1}, {1, 2, 1}, {4, 2, 1}})
+	assert.Equal(t, 6, v)
 }
