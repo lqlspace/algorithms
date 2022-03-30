@@ -9,8 +9,6 @@ import (
 	"io/ioutil"
 	"math/rand"
 	"encoding/json"
-
-	"github.com/lqlspace/algorithms/algorithms/sorting"
 )
 
 

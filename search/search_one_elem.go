@@ -8,7 +8,6 @@ package search
 import (
 	"container/list"
 	"fmt"
-	"github.com/lqlspace/algorithms/data_structures/red_black_tree"
 )
 
 type SliceInt []int

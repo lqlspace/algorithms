@@ -43,3 +43,10 @@ func Test_coinChange(t *testing.T) {
 	assert.Equal(t, -1, coinChange([]int{2}, 3))
 	assert.Equal(t, 0, coinChange([]int{1}, 0))
 }
+
+
+func Test_findLength(t *testing.T) {
+	res := findLength([]int{1,2,3,2,1}, []int{3,2,1,4,7})
+	t.Log(res)
+	assert.Equal(t, 3, res)
+}
