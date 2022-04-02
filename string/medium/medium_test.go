@@ -2,9 +2,11 @@ package medium
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
-func Test_lengthOfLongestSubstring(t *testing.T)  {
+func Test_lengthOfLongestSubstring(t *testing.T) {
 	t.Log(lengthOfLongestSubstring("abcabcbb"))
 	t.Log(lengthOfLongestSubstring("bbbbb"))
 	t.Log(lengthOfLongestSubstring("pwwkew"))
@@ -20,7 +22,7 @@ func Test_myAtoi(t *testing.T) {
 	t.Log(myAtoi("21474836460"))
 }
 
-func Test_reverseWords(t *testing.T)  {
+func Test_reverseWords(t *testing.T) {
 	t.Log(reverseWords("the   sky"))
 	t.Log(reverseWords("the sky is blue"))
 	t.Log(reverseWords("  hello world  "))
@@ -30,8 +32,13 @@ func Test_reverseWords(t *testing.T)  {
 	t.Log(reverseWords(" a bb   cde  "))
 }
 
-func Test_multiply(t *testing.T)  {
+func Test_multiply(t *testing.T) {
 	t.Log(multiply("11", "2"))
 	t.Log(multiply("25", "15"))
 	t.Log(multiply("999", "999"))
+}
+
+func Test_compareVersion(t *testing.T) {
+	res := compareVersion("1.0.1", "1.1")
+	assert.Equal(t, -1, res)
 }
