@@ -61,3 +61,9 @@ func Test_nextPermutation(t *testing.T) {
 	nextPermutation(arr)
 	t.Log(arr)
 }
+
+
+func Test_subsets(t *testing.T) {
+	res := subsets([]int{1, 2, 3})
+	t.Log(res)
+}

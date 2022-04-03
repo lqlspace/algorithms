@@ -1,16 +1,19 @@
 package medium
 
 
-func subsets(nums []int) (ans [][]int) {
+func subsets(nums []int) ([][]int) {
 	n := len(nums)
-	for mask := 0; mask < 1<<n; mask++ {
-		set := []int{}
-		for i, v := range nums {
-			if mask>>i&1 > 0 {
-				set = append(set, v)
-			}
+
+	var ans [][]int 
+	for i := 0; i < 1 << n; i++ {
+		var sub []int 
+		for j, v := range nums {
+			if i >> j & 1 == 1 {
+				sub = append(sub, v)
+			} 
 		}
-		ans = append(ans, append([]int(nil), set...))
+		ans = append(ans, sub)
 	}
-	return
+
+	return ans 
 }
