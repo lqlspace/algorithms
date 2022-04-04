@@ -2,6 +2,8 @@ package medium
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_threeSum(t *testing.T)  {
@@ -66,4 +68,13 @@ func Test_nextPermutation(t *testing.T) {
 func Test_subsets(t *testing.T) {
 	res := subsets([]int{1, 2, 3})
 	t.Log(res)
+}
+
+
+func Test_longestConsecutive(t *testing.T) {
+	num := longestConsecutive([]int{100,4,200,1,3,2})
+	assert.Equal(t, 4, num)
+
+	num = longestConsecutive([]int{0,3,7,2,5,8,4,6,0,1})
+	assert.Equal(t, 9, num)
 }
