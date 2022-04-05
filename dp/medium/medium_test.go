@@ -50,3 +50,21 @@ func Test_findLength(t *testing.T) {
 	t.Log(res)
 	assert.Equal(t, 3, res)
 }
+
+
+func Test_maximalSquare(t *testing.T) {
+	square := maximalSquare([][]byte{
+		{'1','0','1','0','0'},
+		{'1','0','1','1','1'},
+		{'1','1','1','1','1'},
+		{'1','0','0','1','0'},
+	})
+
+	assert.Equal(t, 4, square)
+
+	square = maximalSquare([][]byte{
+		{'0', '1'},
+	})
+
+	assert.Equal(t, 1, square)
+}
