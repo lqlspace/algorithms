@@ -68,3 +68,9 @@ func Test_maximalSquare(t *testing.T) {
 
 	assert.Equal(t, 1, square)
 }
+
+
+func Test_uniquePaths(t *testing.T) {
+	assert.Equal(t, 28, uniquePaths(3, 7))
+	assert.Equal(t, 3, uniquePaths(3, 2))
+}
