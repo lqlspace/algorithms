@@ -74,3 +74,10 @@ func Test_uniquePaths(t *testing.T) {
 	assert.Equal(t, 28, uniquePaths(3, 7))
 	assert.Equal(t, 3, uniquePaths(3, 2))
 }
+
+
+
+func Test_maxProfit(t *testing.T) {
+	res := maxProfit([]int{7,1,5,3,6,4})
+	assert.Equal(t, 7, res)
+}
