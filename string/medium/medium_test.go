@@ -42,3 +42,15 @@ func Test_compareVersion(t *testing.T) {
 	res := compareVersion("1.0.1", "1.1")
 	assert.Equal(t, -1, res)
 }
+
+
+func Test_validIPAddress(t *testing.T) {
+	res := validIPAddress("172.16.254.1")
+	assert.Equal(t, "IPv4", res)
+
+	res = validIPAddress("2001:0db8:85a3:0:0:8A2E:0370:7334")
+	assert.Equal(t, "IPv6", res)
+
+	res = validIPAddress("256.256.256.256")
+	assert.Equal(t, "Neither", res)
+}
